@@ -24,18 +24,14 @@ public class PixelatePass : ScriptableRenderPass
     {
         ConfigureTarget(cameraColorTarget);
 
-        pixelScreenHeight = settings.ScreenHeight;
-        pixelScreenWidth = settings.GetScreenWidth(renderingData.cameraData.camera.aspect);
-
-        material.SetVector("_BlockCount", new Vector2(pixelScreenWidth, pixelScreenHeight));
-        material.SetVector("_BlockSize", new Vector2(1.0f / pixelScreenWidth, 1.0f / pixelScreenHeight));
-        material.SetVector("_HalfBlockSize", new Vector2(0.5f / pixelScreenWidth, 0.5f / pixelScreenHeight));
-
+        /*
+        
+        
         RenderTextureDescriptor descriptor = renderingData.cameraData.cameraTargetDescriptor;
 
         descriptor.width = pixelScreenWidth;
         descriptor.height = pixelScreenHeight;
-
+        */
         //d.GetTemporaryRT(Shader.PropertyToID(pixelHandle.name), descriptor, FilterMode.Point);
     }
 
@@ -49,9 +45,18 @@ public class PixelatePass : ScriptableRenderPass
         CommandBuffer cmd = CommandBufferPool.Get();
         using (new ProfilingScope(cmd, new ProfilingSampler("Pixelate Pass")))
         {
+            pixelScreenHeight = settings.ScreenHeight;
+            pixelScreenWidth = settings.GetScreenWidth(renderingData.cameraData.camera.aspect);
+
+            material.SetVector("_BlockCount", new Vector2(pixelScreenWidth, pixelScreenHeight));
+            material.SetVector("_BlockSize", new Vector2(1.0f / pixelScreenWidth, 1.0f / pixelScreenHeight));
+            material.SetVector("_HalfBlockSize", new Vector2(0.5f / pixelScreenWidth, 0.5f / pixelScreenHeight));
+
             Blitter.BlitCameraTexture(cmd, cameraColorTarget, cameraColorTarget, material, 0);
         }
         context.ExecuteCommandBuffer(cmd);
+        cmd.Clear();
+
         CommandBufferPool.Release(cmd);
     }
 

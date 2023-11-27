@@ -4,7 +4,6 @@ using UnityEngine.Rendering.Universal;
 
 public class PixelateFeature : ScriptableRendererFeature
 {
-    [SerializeField] private Shader shader;
     [SerializeField] private PixelatePassSettings settings;
     private PixelatePass pixelatePass;
 
@@ -12,7 +11,7 @@ public class PixelateFeature : ScriptableRendererFeature
 
     public override void Create()
     {
-        material = CoreUtils.CreateEngineMaterial(shader);
+        material = CoreUtils.CreateEngineMaterial("Screen/Pixelate");
         pixelatePass = new PixelatePass(settings, material);
     }
 
@@ -23,7 +22,7 @@ public class PixelateFeature : ScriptableRendererFeature
 
     public override void SetupRenderPasses(ScriptableRenderer renderer, in RenderingData renderingData)
     {
-        pixelatePass.ConfigureInput(ScriptableRenderPassInput.Color);
+        pixelatePass.ConfigureInput(ScriptableRenderPassInput.Color | ScriptableRenderPassInput.Depth | ScriptableRenderPassInput.Normal);
         pixelatePass.SetTarget(renderer.cameraColorTargetHandle);
     }
 
