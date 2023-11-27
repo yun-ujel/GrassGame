@@ -8,6 +8,8 @@ public class PixelatePass : ScriptableRenderPass
     {
         this.settings = settings;
         renderPassEvent = settings.RenderPassEvent;
+
+        this.material = material;
     }
 
     private PixelatePassSettings settings;
