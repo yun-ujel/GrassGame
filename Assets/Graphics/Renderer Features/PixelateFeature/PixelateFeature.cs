@@ -4,6 +4,7 @@ using UnityEngine.Rendering.Universal;
 
 public class PixelateFeature : ScriptableRendererFeature
 {
+    [SerializeField] private bool runInSceneView;
     [SerializeField] private PixelatePassSettings settings;
     private PixelatePass pixelatePass;
 
@@ -28,6 +29,9 @@ public class PixelateFeature : ScriptableRendererFeature
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
+#if UNITY_EDITOR
+        if (!runInSceneView && renderingData.cameraData.isSceneViewCamera) { return; };
+#endif
         renderer.EnqueuePass(pixelatePass);
     }
 }
