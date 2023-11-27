@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Active: 1
   runInSceneView: 0
   settings:
-    <ScreenHeight>k__BackingField: 270
+    <ScreenHeight>k__BackingField: 360
     <RenderPassEvent>k__BackingField: 550
     <DepthThreshold>k__BackingField: 0.001
     <NormalsThreshold>k__BackingField: 1
