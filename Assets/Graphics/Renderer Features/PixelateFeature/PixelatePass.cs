@@ -23,16 +23,6 @@ public class PixelatePass : ScriptableRenderPass
     public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
     {
         ConfigureTarget(cameraColorTarget);
-
-        /*
-        
-        
-        RenderTextureDescriptor descriptor = renderingData.cameraData.cameraTargetDescriptor;
-
-        descriptor.width = pixelScreenWidth;
-        descriptor.height = pixelScreenHeight;
-        */
-        //d.GetTemporaryRT(Shader.PropertyToID(pixelHandle.name), descriptor, FilterMode.Point);
     }
 
     public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
