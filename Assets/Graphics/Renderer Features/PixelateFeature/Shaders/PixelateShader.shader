@@ -72,13 +72,31 @@ Shader "Screen/Pixelate"
                 }
                 float depthEdge = step(DepthThreshold, depthDifference);
 
-                // TODO: Add Normal Edges & implement Outline method to frag()
+                // Normal Edges
+                float3 normals[4];
+                float dotSum = 0.0;
+                [unroll]
+                for (int j = 0; j < 4; j++)
+                {
+                    normals[j] = GetNormals(uvs[j]);
+                    float3 normalDiff = normal - normals[j];
+
+                    float normalBiasDiff = dot(normalDiff, NormalEdgeBias);
+                    float normalIndicator = smoothstep(-0.01, 0.01, normalBiasDiff);
+
+                    dotSum += dot(normalDiff, normalDiff) * normalIndicator;
+                }
+                float indicator = sqrt(dotSum);
+                float normalEdge = step(NormalsThreshold, indicator);
+
+                return depthDifference < 0 ? 0 : (depthEdge > 0.0 ? (DepthEdgeStrength * depthEdge) : (NormalEdgeStrength * normalEdge));
             }
 
             half4 frag (Varyings input) : SV_Target
             {
                 half4 color = Pixelate(_CameraOpaqueTexture, input.texcoord);
-                return color;
+                // TODO: Make Outline Method variables accessible in the Editor
+                return color + Outline(input.texcoord, 0.001, 1, float3(0, 0, 0), 1, 1);
             }
             ENDHLSL
         }

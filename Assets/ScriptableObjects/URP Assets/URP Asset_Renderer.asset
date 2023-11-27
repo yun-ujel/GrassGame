@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: PixelateFeature
   m_EditorClassIdentifier: 
   m_Active: 1
-  shader: {fileID: 4800000, guid: 8efcc7505fde3fd439b4a655c34ab3da, type: 3}
+  runInSceneView: 0
   settings:
     <RenderPassEvent>k__BackingField: 550
-    <ScreenHeight>k__BackingField: 360
+    <ScreenHeight>k__BackingField: 270

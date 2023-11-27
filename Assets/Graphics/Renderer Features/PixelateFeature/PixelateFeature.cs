@@ -30,7 +30,7 @@ public class PixelateFeature : ScriptableRendererFeature
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
 #if UNITY_EDITOR
-        if (!runInSceneView && renderingData.cameraData.isSceneViewCamera) { return; };
+        if (!runInSceneView && renderingData.cameraData.isSceneViewCamera) { return; }
 #endif
         renderer.EnqueuePass(pixelatePass);
     }
