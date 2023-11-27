@@ -42,6 +42,14 @@ public class PixelatePass : ScriptableRenderPass
             material.SetVector("_BlockSize", new Vector2(1.0f / pixelScreenWidth, 1.0f / pixelScreenHeight));
             material.SetVector("_HalfBlockSize", new Vector2(0.5f / pixelScreenWidth, 0.5f / pixelScreenHeight));
 
+            material.SetFloat("_DepthThreshold", settings.DepthThreshold);
+            material.SetFloat("_NormalsThreshold", settings.NormalsThreshold);
+
+            material.SetVector("_NormalEdgeBias", settings.NormalEdgeBias);
+
+            material.SetFloat("_DepthEdgeStrength", settings.DepthEdgeStrength);
+            material.SetFloat("_NormalEdgeStrength", settings.NormalEdgeStrength);
+
             Blitter.BlitCameraTexture(cmd, cameraColorTarget, cameraColorTarget, material, 0);
         }
         context.ExecuteCommandBuffer(cmd);
@@ -59,8 +67,15 @@ public class PixelatePass : ScriptableRenderPass
 [System.Serializable]
 public class PixelatePassSettings
 {
+    [field: SerializeField] public int ScreenHeight { get; set; } = 270;
     [field: SerializeField] public RenderPassEvent RenderPassEvent { get; set; } = RenderPassEvent.BeforeRenderingPostProcessing;
-    [field: SerializeField] public int ScreenHeight { get; set; } = 360;
+
+    [field: Header("Outline Settings"), SerializeField]
+    public float DepthThreshold { get; set; }
+    [field: SerializeField] public float NormalsThreshold { get; set; }
+    [field: SerializeField, Space] public Vector3 NormalEdgeBias { get; set; }
+    [field: SerializeField, Space] public float DepthEdgeStrength { get; set; }
+    [field: SerializeField] public float NormalEdgeStrength { get; set; }
 
     public int GetScreenWidth(float aspect)
     {

@@ -28,6 +28,14 @@ Shader "Screen/Pixelate"
             float2 _BlockSize;
             float2 _HalfBlockSize;
 
+            float _DepthThreshold;
+            float _NormalsThreshold;
+
+            float3 _NormalEdgeBias;
+
+            float _DepthEdgeStrength;
+            float _NormalEdgeStrength;
+
             half4 Pixelate(Texture2D tex, float2 UV)
             {
                 float2 blockPos = floor(UV * _BlockCount);
@@ -95,8 +103,7 @@ Shader "Screen/Pixelate"
             half4 frag (Varyings input) : SV_Target
             {
                 half4 color = Pixelate(_CameraOpaqueTexture, input.texcoord);
-                // TODO: Make Outline Method variables accessible in the Editor
-                return color + Outline(input.texcoord, 0.001, 1, float3(0, 0, 0), 1, 1);
+                return color + Outline(input.texcoord, _DepthThreshold, _NormalsThreshold, _NormalEdgeBias, _DepthEdgeStrength, _NormalEdgeStrength);
             }
             ENDHLSL
         }
