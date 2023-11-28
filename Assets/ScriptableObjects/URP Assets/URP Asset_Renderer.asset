@@ -71,10 +71,10 @@ MonoBehaviour:
   m_Active: 1
   runInSceneView: 0
   settings:
-    <ScreenHeight>k__BackingField: 360
+    <PixelScale>k__BackingField: 3
     <RenderPassEvent>k__BackingField: 550
     <DepthThreshold>k__BackingField: 0.001
     <NormalsThreshold>k__BackingField: 1
-    <NormalEdgeBias>k__BackingField: {x: 1, y: 1, z: 0}
+    <NormalEdgeBias>k__BackingField: {x: 1, y: 1.2, z: 0}
     <DepthEdgeStrength>k__BackingField: -0.4
     <NormalEdgeStrength>k__BackingField: 0.3

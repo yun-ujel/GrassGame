@@ -35,8 +35,8 @@ public class PixelatePass : ScriptableRenderPass
         CommandBuffer cmd = CommandBufferPool.Get();
         using (new ProfilingScope(cmd, new ProfilingSampler("Pixelate Pass")))
         {
-            pixelScreenHeight = settings.ScreenHeight;
-            pixelScreenWidth = settings.GetScreenWidth(renderingData.cameraData.camera.aspect);
+            pixelScreenHeight = renderingData.cameraData.camera.pixelHeight / settings.PixelScale;
+            pixelScreenWidth = renderingData.cameraData.camera.pixelWidth / settings.PixelScale;
 
             material.SetVector("_BlockCount", new Vector2(pixelScreenWidth, pixelScreenHeight));
             material.SetVector("_BlockSize", new Vector2(1.0f / pixelScreenWidth, 1.0f / pixelScreenHeight));
@@ -67,7 +67,7 @@ public class PixelatePass : ScriptableRenderPass
 [System.Serializable]
 public class PixelatePassSettings
 {
-    [field: SerializeField] public int ScreenHeight { get; set; } = 270;
+    [field: SerializeField, Range(1, 10)] public int PixelScale { get; set; } = 3;
     [field: SerializeField] public RenderPassEvent RenderPassEvent { get; set; } = RenderPassEvent.BeforeRenderingPostProcessing;
 
     [field: Header("Outline Settings"), SerializeField]
@@ -76,9 +76,4 @@ public class PixelatePassSettings
     [field: SerializeField, Space] public Vector3 NormalEdgeBias { get; set; }
     [field: SerializeField, Space] public float DepthEdgeStrength { get; set; }
     [field: SerializeField] public float NormalEdgeStrength { get; set; }
-
-    public int GetScreenWidth(float aspect)
-    {
-        return Mathf.CeilToInt(ScreenHeight * aspect);
-    }
 }
