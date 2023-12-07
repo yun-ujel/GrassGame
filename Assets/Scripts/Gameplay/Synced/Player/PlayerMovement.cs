@@ -4,91 +4,140 @@ using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : NetworkBehaviour
 {
-    struct PlayerNetworkData : INetworkSerializable
+    #region Parameters
+    struct PlayerMovementData : INetworkSerializable
     {
-        private float xPos;
-        private float yPos;
-        private float zPos;
+        #region Private
+        private Vector3 velocity;
+        private Vector3 moveDirection;
+        #endregion
 
-        public Vector3 Position
+        #region Public
+        public Vector3 MoveDirection
         {
-            get => new Vector3 (xPos, yPos, zPos);
-            set
-            {
-                xPos = value.x;
-                yPos = value.y;
-                zPos = value.z;
-            }
+            get { return moveDirection; }
+            set { moveDirection = value; }
         }
 
-        public PlayerNetworkData(float x, float y, float z)
+        public Vector3 Velocity
         {
-            xPos = x;
-            yPos = y;
-            zPos = z;
+            get { return velocity; }
+            set { velocity = value; }
         }
+        #endregion
 
-        public PlayerNetworkData(Vector3 pos)
+        public PlayerMovementData(Vector3 velocity, Vector3 moveDirection)
         {
-            xPos = pos.x;
-            yPos = pos.y;
-            zPos = pos.z;
+            this.velocity = velocity;
+            this.moveDirection = moveDirection;
         }
 
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
-            serializer.SerializeValue(ref xPos);
-            serializer.SerializeValue(ref yPos);
-            serializer.SerializeValue(ref zPos);
+            serializer.SerializeValue(ref velocity);
+            serializer.SerializeValue(ref moveDirection);
         }
     }
 
-    private NetworkVariable<PlayerNetworkData> networkData = new NetworkVariable<PlayerNetworkData>(new PlayerNetworkData(Vector3.zero), NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    private NetworkVariable<PlayerMovementData> networkMovementData = new(new PlayerMovementData(Vector3.zero, Vector3.zero), NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    private NetworkVariable<Vector3> networkPosition = new(Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
+    private PlayerMovementData movementData;
+
+    private Rigidbody body;
 
     private PlayerInput playerInput;
     private readonly string playerInputTag = "PlayerInput";
 
-    private void Update()
-    {
-        transform.position = networkData.Value.Position;
-    }
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float acceleration;
 
+    #endregion
+
+    #region Initialisation
     public override void OnNetworkSpawn()
     {
-        if (!IsOwner)
+        body = GetComponent<Rigidbody>();
+
+        if (IsOwner)
         {
-            return;
+            playerInput = GameObject.FindGameObjectWithTag(playerInputTag).GetComponent<PlayerInput>();
+
+            SubscribeToInputActions();
         }
-        playerInput = GameObject.FindGameObjectWithTag(playerInputTag).GetComponent<PlayerInput>();
-        
-        SubscribeToInputActions();
     }
 
     public override void OnNetworkDespawn()
     {
-        if (!IsOwner)
+        if (IsOwner)
         {
-            return;
+            UnsubscribeFromInputActions();
         }
-        UnsubscribeFromInputActions();
-    }
-
-    private void OnMove(InputAction.CallbackContext ctx)
-    {
-        Vector2 movement = ctx.ReadValue<Vector2>();
-
-        networkData.Value = new PlayerNetworkData(networkData.Value.Position + new Vector3(movement.x, 0f, movement.y));
     }
 
     private void SubscribeToInputActions()
     {
-        playerInput.actions["Move"].performed += OnMove;
+        playerInput.actions["Move"].performed += OnPerformMove;
+        playerInput.actions["Move"].canceled += OnCancelMove;
     }
 
     private void UnsubscribeFromInputActions()
     {
-        playerInput.actions["Move"].performed -= OnMove;
+        playerInput.actions["Move"].performed -= OnPerformMove;
+        playerInput.actions["Move"].canceled -= OnCancelMove;
     }
+    #endregion
+
+    private void FixedUpdate()
+    {
+        if (IsOwner)
+        {
+            ProcessMovement();
+        }
+        else
+        {
+            ReadMovement();
+        }
+    }
+
+    private void ReadMovement()
+    {
+        body.velocity = networkMovementData.Value.Velocity;
+        Debug.Log(body.velocity);
+    }
+
+    private void ProcessMovement()
+    {
+        body.velocity = Vector3.MoveTowards(body.velocity, movementData.MoveDirection * maxSpeed, acceleration * Time.fixedDeltaTime);
+        movementData.Velocity = body.velocity;
+
+        networkMovementData.Value = movementData;
+    }
+
+    #region Input Events
+
+    private void OnPerformMove(InputAction.CallbackContext ctx)
+    {
+        Vector2 movement = ctx.ReadValue<Vector2>();
+        Debug.Log(movement);
+
+        movementData.MoveDirection = new Vector3(movement.x, 0f, movement.y);
+
+        networkMovementData.Value = movementData;
+    }
+
+    private void OnCancelMove(InputAction.CallbackContext ctx)
+    {
+        Vector2 movement = ctx.ReadValue<Vector2>();
+        Debug.Log(movement);
+
+        movementData.MoveDirection = new Vector3(movement.x, 0f, movement.y);
+
+        networkMovementData.Value = movementData;
+    }
+
+    #endregion
 }
