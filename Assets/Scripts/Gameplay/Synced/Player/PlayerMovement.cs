@@ -52,8 +52,13 @@ public class PlayerMovement : NetworkBehaviour
     private PlayerInput playerInput;
     private readonly string playerInputTag = "PlayerInput";
 
+    [Header("Write: Speed Settings")]
     [SerializeField] private float maxSpeed;
     [SerializeField] private float acceleration;
+
+    [Header("Read: Interpolation Settings")]
+    [SerializeField, Range(-1, 1)] private float minSnapDot = 0.2f;
+    [SerializeField] private float minSnapDistance = 1f;
 
     #endregion
 
@@ -81,13 +86,13 @@ public class PlayerMovement : NetworkBehaviour
     private void SubscribeToInputActions()
     {
         playerInput.actions["Move"].performed += OnPerformMove;
-        playerInput.actions["Move"].canceled += OnCancelMove;
+        playerInput.actions["Move"].canceled += OnPerformMove;
     }
 
     private void UnsubscribeFromInputActions()
     {
         playerInput.actions["Move"].performed -= OnPerformMove;
-        playerInput.actions["Move"].canceled -= OnCancelMove;
+        playerInput.actions["Move"].canceled -= OnPerformMove;
     }
     #endregion
 
@@ -95,7 +100,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (IsOwner)
         {
-            ProcessMovement();
+            TransmitMovement();
         }
         else
         {
@@ -103,36 +108,49 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
-    private void ReadMovement()
+    private void TransmitMovement()
     {
-        body.velocity = networkMovementData.Value.Velocity;
-        Debug.Log(body.velocity);
-    }
+        Vector3 velocity = Vector3.MoveTowards(body.velocity, movementData.MoveDirection * maxSpeed, acceleration * Time.fixedDeltaTime);
+        velocity.y = body.velocity.y;
 
-    private void ProcessMovement()
-    {
-        body.velocity = Vector3.MoveTowards(body.velocity, movementData.MoveDirection * maxSpeed, acceleration * Time.fixedDeltaTime);
+        body.velocity = velocity;
+        
         movementData.Velocity = body.velocity;
 
+        networkPosition.Value = body.position;
         networkMovementData.Value = movementData;
     }
+
+    #region Read and Interpolate State
+
+    private Vector3 interpolateVelocity;
+
+    private void ReadMovement()
+    {
+        if (CanSnapPosition(body.position, networkPosition.Value, body.velocity))
+        {
+            body.MovePosition(Vector3.SmoothDamp(body.position, networkPosition.Value, ref interpolateVelocity, Time.fixedDeltaTime * 2f));
+        }
+
+        body.velocity = networkMovementData.Value.Velocity;
+    }
+
+    private bool CanSnapPosition(Vector3 currentPosition, Vector3 snapPosition, Vector3 currentMoveDirection)
+    {
+        Vector3 snapDirection = snapPosition - currentPosition;
+        float sqrDistance = snapDirection.sqrMagnitude;
+
+        return currentMoveDirection.sqrMagnitude == 0 || (Vector3.Dot(snapDirection, currentMoveDirection) >= minSnapDot && sqrDistance >= Mathf.Pow(minSnapDistance, 2));
+    }
+
+    #endregion
 
     #region Input Events
 
     private void OnPerformMove(InputAction.CallbackContext ctx)
     {
         Vector2 movement = ctx.ReadValue<Vector2>();
-        Debug.Log(movement);
-
-        movementData.MoveDirection = new Vector3(movement.x, 0f, movement.y);
-
-        networkMovementData.Value = movementData;
-    }
-
-    private void OnCancelMove(InputAction.CallbackContext ctx)
-    {
-        Vector2 movement = ctx.ReadValue<Vector2>();
-        Debug.Log(movement);
+        Debug.Log($"{OwnerClientId}; {movement}");
 
         movementData.MoveDirection = new Vector3(movement.x, 0f, movement.y);
 
