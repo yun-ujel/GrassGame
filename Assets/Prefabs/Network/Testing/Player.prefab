@@ -121,6 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 8
   acceleration: 50
+  moveRelativeToCamera: 1
+  mainCamera: {fileID: 0}
   minSnapDot: 0
   minSnapDistance: 1
 --- !u!136 &4227099658999464154

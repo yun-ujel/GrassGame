@@ -13,6 +13,7 @@ public class PlayerMovement : NetworkBehaviour
         #region Private
         private Vector3 velocity;
         private Vector3 moveDirection;
+        private Vector3 position;
         #endregion
 
         #region Public
@@ -27,23 +28,38 @@ public class PlayerMovement : NetworkBehaviour
             get { return velocity; }
             set { velocity = value; }
         }
+
+        public Vector3 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+
+        public static PlayerMovementData Zero
+        {
+            get
+            {
+                return new PlayerMovementData(Vector3.zero, Vector3.zero, Vector3.zero);
+            }
+        }
         #endregion
 
-        public PlayerMovementData(Vector3 velocity, Vector3 moveDirection)
+        public PlayerMovementData(Vector3 velocity, Vector3 moveDirection, Vector3 position)
         {
             this.velocity = velocity;
             this.moveDirection = moveDirection;
+            this.position = position;
         }
 
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref velocity);
             serializer.SerializeValue(ref moveDirection);
+            serializer.SerializeValue(ref position);
         }
     }
 
-    private NetworkVariable<PlayerMovementData> networkMovementData = new(new PlayerMovementData(Vector3.zero, Vector3.zero), NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-    private NetworkVariable<Vector3> networkPosition = new(Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    private NetworkVariable<PlayerMovementData> networkMovementData = new(PlayerMovementData.Zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     private PlayerMovementData movementData;
 
@@ -55,6 +71,10 @@ public class PlayerMovement : NetworkBehaviour
     [Header("Write: Speed Settings")]
     [SerializeField] private float maxSpeed;
     [SerializeField] private float acceleration;
+
+    [Header("Write: Camera Settings")]
+    [SerializeField] private bool moveRelativeToCamera;
+    [SerializeField] private Camera mainCamera;
 
     [Header("Read: Interpolation Settings")]
     [SerializeField, Range(-1, 1)] private float minSnapDot = 0.2f;
@@ -116,8 +136,8 @@ public class PlayerMovement : NetworkBehaviour
         body.velocity = velocity;
         
         movementData.Velocity = body.velocity;
+        movementData.Position = body.position;
 
-        networkPosition.Value = body.position;
         networkMovementData.Value = movementData;
     }
 
@@ -127,9 +147,14 @@ public class PlayerMovement : NetworkBehaviour
 
     private void ReadMovement()
     {
-        if (CanSnapPosition(body.position, networkPosition.Value, body.velocity))
+        // Interpolating between network positions is done in two ways:
+        // The Rigidbody's velocity is synced across clients (this is smooth, but delays in velocity changes will result in desynced positions)
+        // The position is smoothly re-synced under specific conditions ("Snap Position")
+
+        if (CanSnapPosition(body.position, networkMovementData.Value.Position, body.velocity))
         {
-            body.MovePosition(Vector3.SmoothDamp(body.position, networkPosition.Value, ref interpolateVelocity, Time.fixedDeltaTime * 2f));
+            // "Snap", or smoothly move towards the synced position without relation to input
+            body.MovePosition(Vector3.SmoothDamp(body.position, networkMovementData.Value.Position, ref interpolateVelocity, Time.fixedDeltaTime * 2f));
         }
 
         body.velocity = networkMovementData.Value.Velocity;
@@ -140,6 +165,7 @@ public class PlayerMovement : NetworkBehaviour
         Vector3 snapDirection = snapPosition - currentPosition;
         float sqrDistance = snapDirection.sqrMagnitude;
 
+        // If the positions are too far desynced, or resyncing the position wouldn't cause jittery movement (dot product), return true
         return currentMoveDirection.sqrMagnitude == 0 || (Vector3.Dot(snapDirection, currentMoveDirection) >= minSnapDot && sqrDistance >= Mathf.Pow(minSnapDistance, 2));
     }
 
@@ -152,7 +178,25 @@ public class PlayerMovement : NetworkBehaviour
         Vector2 movement = ctx.ReadValue<Vector2>();
         Debug.Log($"{OwnerClientId}; {movement}");
 
-        movementData.MoveDirection = new Vector3(movement.x, 0f, movement.y);
+        if (moveRelativeToCamera)
+        {
+            if (mainCamera == null)
+            {
+                mainCamera = Camera.main;
+            }
+
+            Vector3 moveDirection = movement.y * mainCamera.transform.forward; // Forward Movement
+            moveDirection += movement.x * mainCamera.transform.right; // Horizontal Movement
+            moveDirection.y = 0f;
+
+            moveDirection.Normalize();
+
+            movementData.MoveDirection = moveDirection;
+        }
+        else
+        {
+            movementData.MoveDirection = new Vector3(movement.x, 0f, movement.y);
+        }
 
         networkMovementData.Value = movementData;
     }
