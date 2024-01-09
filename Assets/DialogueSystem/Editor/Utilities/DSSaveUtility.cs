@@ -50,7 +50,7 @@ namespace DS.Utilities
 
             GetElementsFromGraphView();
 
-            DSGraphSaveDataSO graphData = CreateAsset<DSGraphSaveDataSO>("Assets/Editor/DialogueSystem/Graphs", $"{graphFileName}Graph");
+            DSGraphSaveDataSO graphData = CreateAsset<DSGraphSaveDataSO>("Assets/DialogueSystem/Editor/Graphs", $"{graphFileName}Graph");
             graphData.Initialize(graphFileName);
 
             DSDialogueContainerSO dialogueContainer = CreateAsset<DSDialogueContainerSO>(containerFolderPath, graphFileName);
@@ -279,14 +279,14 @@ namespace DS.Utilities
         #region Load Methods
         public static void Load()
         {
-            DSGraphSaveDataSO graphData = LoadAsset<DSGraphSaveDataSO>("Assets/Editor/DialogueSystem/Graphs", graphFileName);
+            DSGraphSaveDataSO graphData = LoadAsset<DSGraphSaveDataSO>("Assets/DialogueSystem/Editor/Graphs", graphFileName);
             if (graphData == null)
             {
                 EditorUtility.DisplayDialog
                 (
                     "File Could Not Be Loaded",
                     "The file at the following path could not be found: \n\n" +
-                    $"Assets/Editor/DialogueSystem/Graphs/{graphFileName} \n\n" +
+                    $"Assets/DialogueSystem/Editor/Graphs/{graphFileName} \n\n" +
                     "Please ensure you chose the correct file, placed at the folder path mentioned above.",
                     "OK"
                 );
@@ -368,7 +368,7 @@ namespace DS.Utilities
         #region Creation Methods
         private static void CreateStaticFolders()
         {
-            CreateFolder("Assets/Editor/DialogueSystem", "Graphs");
+            CreateFolder("Assets/DialogueSystem/Editor", "Graphs");
             CreateFolder("Assets", "DialogueSystem");
             CreateFolder("Assets/DialogueSystem", "Dialogues");
             CreateFolder("Assets/DialogueSystem/Dialogues", graphFileName);
