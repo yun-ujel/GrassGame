@@ -89,6 +89,28 @@
 	border-color: #27292C;
 }
 
+
+.ds-node__title-textfield > .unity-text-field__input
+{
+	background-color: #232527;
+	border-color: transparent;
+	border-bottom-color: #383839;
+	border-bottom-width: 4px;
+	padding: 4px;
+	max-width: 600px;
+}
+
+.ds-node__title-textfield > .unity-text-field__input:hover
+{
+	background-color: #252729;
+}
+
+.ds-node__title-textfield > .unity-text-field__input:focus
+{
+	background-color: #1D1D1E;
+	border-color: #27292C;
+}
+
 /* BUTTONS */
 
 .ds-node__button

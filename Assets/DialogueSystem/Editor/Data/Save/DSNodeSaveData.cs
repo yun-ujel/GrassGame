@@ -10,6 +10,7 @@ namespace DS.Data.Save
     {
         [field: SerializeField] public string GUID { get; set; }
         [field: SerializeField] public string Name { get; set; }
+        [field: SerializeField] public string Title { get; set; }
         [field: SerializeField] public string Text { get; set; }
         [field: SerializeField] public List<DSChoiceSaveData> Choices { get; set; }
         [field: SerializeField] public string GroupGUID { get; set; }

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Texture>k__BackingField: {fileID: 0}
   <DialogueName>k__BackingField: Touch0
+  <Title>k__BackingField: 
   <Text>k__BackingField: You reach out and softly touch the object. You feel a light
     warmth in your hand. The object remains completely still.
   <Choices>k__BackingField:

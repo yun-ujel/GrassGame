@@ -16,16 +16,17 @@ MonoBehaviour:
   <Groups>k__BackingField:
   - <GUID>k__BackingField: ff602690-271c-4f53-b09b-2a522d0693a1
     <Name>k__BackingField: Fork0Touch
-    <Position>k__BackingField: {x: 957.00006, y: 6.0000076}
+    <Position>k__BackingField: {x: 957.00006, y: 6}
   - <GUID>k__BackingField: 5a712be9-1110-4120-b849-6b83eb758e23
     <Name>k__BackingField: Fork0Sound
     <Position>k__BackingField: {x: 954, y: 356}
   - <GUID>k__BackingField: 52f74d69-66fb-46f2-86c7-0081873df0dd
     <Name>k__BackingField: Fork0Exit
-    <Position>k__BackingField: {x: 958.00006, y: 713}
+    <Position>k__BackingField: {x: 958.00006, y: 713.00006}
   <Nodes>k__BackingField:
   - <GUID>k__BackingField: d01bc965-8e20-45f1-b9b4-3bc7da76a9ef
     <Name>k__BackingField: Fork0
+    <Title>k__BackingField: 
     <Text>k__BackingField: What should you do with the object?
     <Choices>k__BackingField:
     - <Text>k__BackingField: Reach out and touch it
@@ -40,6 +41,7 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 176, y: 215}
   - <GUID>k__BackingField: bba79cf7-d1d1-4559-b601-8d638a8a217f
     <Name>k__BackingField: Touch0
+    <Title>k__BackingField: 
     <Text>k__BackingField: You reach out and softly touch the object. You feel a
       light warmth in your hand. The object remains completely still.
     <Choices>k__BackingField:
@@ -51,6 +53,7 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 982, y: 65}
   - <GUID>k__BackingField: 1013fd49-4449-4766-8c7f-30324b53e382
     <Name>k__BackingField: Entry
+    <Title>k__BackingField: 
     <Text>k__BackingField: You discover a strange object. It emits a light humming
       sound.
     <Choices>k__BackingField:
@@ -62,6 +65,7 @@ MonoBehaviour:
     <Position>k__BackingField: {x: -523, y: 216}
   - <GUID>k__BackingField: 10667650-b180-4f09-9103-8683e1a76ade
     <Name>k__BackingField: Sound0
+    <Title>k__BackingField: 
     <Text>k__BackingField: You kneel down and put your ear next to the object to
       better hear the humming sound.
     <Choices>k__BackingField:
@@ -73,6 +77,7 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 979, y: 415}
   - <GUID>k__BackingField: 9c1dcae0-1b3d-48c7-8985-666d2771ceb6
     <Name>k__BackingField: SoundFork0
+    <Title>k__BackingField: 
     <Text>k__BackingField: You realise the humming sound isn't a subtle vibration,
       and more akin to someone's voice.
     <Choices>k__BackingField:
@@ -86,26 +91,18 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 1696, y: 418}
   - <GUID>k__BackingField: e19fdde9-3bcc-4cd5-8dbc-3d92cb6f09f2
     <Name>k__BackingField: Call0
-    <Text>k__BackingField: 'You try to greet the voice in the cube: "Hello?"'
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You try to greet the voice in the cube.
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
-      <TargetGUID>k__BackingField: f6987313-d6bc-41b5-a115-f9cd888c6573
+      <TargetGUID>k__BackingField: 37641c65-9ad4-445a-b6f3-93875c82bff1
     <GroupGUID>k__BackingField: 5a712be9-1110-4120-b849-6b83eb758e23
     <DialogueType>k__BackingField: 0
     <Texture>k__BackingField: {fileID: 0}
     <Position>k__BackingField: {x: 2379, y: 423}
-  - <GUID>k__BackingField: f6987313-d6bc-41b5-a115-f9cd888c6573
-    <Name>k__BackingField: Call1
-    <Text>k__BackingField: The voice does not respond. The humming continues.
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <TargetGUID>k__BackingField: d01bc965-8e20-45f1-b9b4-3bc7da76a9ef
-    <GroupGUID>k__BackingField: 5a712be9-1110-4120-b849-6b83eb758e23
-    <DialogueType>k__BackingField: 0
-    <Texture>k__BackingField: {fileID: 0}
-    <Position>k__BackingField: {x: 3058, y: 422}
   - <GUID>k__BackingField: 9e1b8ed8-d12f-4620-a180-7a0f60b165fd
     <Name>k__BackingField: Exit0
+    <Title>k__BackingField: 
     <Text>k__BackingField: You step back from the object.
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
@@ -114,6 +111,28 @@ MonoBehaviour:
     <DialogueType>k__BackingField: 0
     <Texture>k__BackingField: {fileID: 0}
     <Position>k__BackingField: {x: 983, y: 772}
+  - <GUID>k__BackingField: f6987313-d6bc-41b5-a115-f9cd888c6573
+    <Name>k__BackingField: Call2
+    <Title>k__BackingField: 
+    <Text>k__BackingField: The voice does not respond. The humming continues.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: d01bc965-8e20-45f1-b9b4-3bc7da76a9ef
+    <GroupGUID>k__BackingField: 5a712be9-1110-4120-b849-6b83eb758e23
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 3385, y: 423}
+  - <GUID>k__BackingField: 37641c65-9ad4-445a-b6f3-93875c82bff1
+    <Name>k__BackingField: Call1
+    <Title>k__BackingField: You
+    <Text>k__BackingField: '"Hello?"'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: f6987313-d6bc-41b5-a115-f9cd888c6573
+    <GroupGUID>k__BackingField: 5a712be9-1110-4120-b849-6b83eb758e23
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 3054, y: 423}
   <OldGroupNames>k__BackingField:
   - Fork0Touch
   - Fork0Sound
@@ -131,6 +150,7 @@ MonoBehaviour:
       - Sound0
       - SoundFork0
       - Call0
+      - Call2
       - Call1
     - Key: Fork0Exit
       Value:

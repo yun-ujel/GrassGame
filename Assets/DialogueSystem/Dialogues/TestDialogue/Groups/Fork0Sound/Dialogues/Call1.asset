@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Texture>k__BackingField: {fileID: 0}
   <DialogueName>k__BackingField: Call1
-  <Text>k__BackingField: The voice does not respond. The humming continues.
+  <Title>k__BackingField: You
+  <Text>k__BackingField: '"Hello?"'
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 68e313d4e824cca4f96eb93b97c27f72, type: 2}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: fbaa7435b1555d74ab460167249a9229, type: 2}
   <DialogueType>k__BackingField: 0
   <IsStartingDialogue>k__BackingField: 0

@@ -158,6 +158,7 @@ namespace DS.Utilities
                 GUID = node.GUID,
                 Name = node.DialogueName,
                 Choices = choicesClone,
+                Title = node.Title,
                 Text = node.Text,
                 GroupGUID = node.Group?.GUID,
                 DialogueType = node.DialogueType,
@@ -187,6 +188,7 @@ namespace DS.Utilities
             (
                 node.Texture,
                 node.DialogueName,
+                node.Title,
                 node.Text,
                 ConvertNodeChoicesToDialogueChoices(node.Choices),
                 node.DialogueType,
@@ -323,6 +325,7 @@ namespace DS.Utilities
 
                 node.GUID = nodeData.GUID;
                 node.Choices = choicesClone;
+                node.Title = nodeData.Title;
                 node.Text = nodeData.Text;
                 node.Texture = nodeData.Texture;
 

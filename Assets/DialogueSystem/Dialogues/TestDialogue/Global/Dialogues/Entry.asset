@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Texture>k__BackingField: {fileID: 0}
   <DialogueName>k__BackingField: Entry
+  <Title>k__BackingField: 
   <Text>k__BackingField: You discover a strange object. It emits a light humming
     sound.
   <Choices>k__BackingField:

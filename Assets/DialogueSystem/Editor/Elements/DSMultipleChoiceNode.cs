@@ -8,6 +8,7 @@ namespace DS.Elements
     using Enumerations;
     using Utilities;
     using Windows;
+
     public class DSMultipleChoiceNode : DSNode
     {
         public override void Initialize(string nodeName, DSGraphView dsGraphView, Vector2 position)

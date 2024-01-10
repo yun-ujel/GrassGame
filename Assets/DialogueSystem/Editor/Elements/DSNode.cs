@@ -17,6 +17,7 @@ namespace DS.Elements
         public string GUID { get; set; }
         public string DialogueName { get; set; }
         public List<DSChoiceSaveData> Choices { get; set; }
+        public string Title { get; set; }
         public string Text { get; set; }
         public DSDialogueType DialogueType { get; set; }
         public DSGroup Group { get; set; }
@@ -30,6 +31,7 @@ namespace DS.Elements
             GUID = System.Guid.NewGuid().ToString();
             DialogueName = nodeName;
             Choices = new List<DSChoiceSaveData>();
+            Title = "Title";
             Text = "Dialogue Text";
 
             graphView = dsGraphView;
@@ -52,7 +54,7 @@ namespace DS.Elements
 
         public virtual void Draw()
         {
-            /* TITLE CONTAINER */
+            /* TITLE CONTAINER, CONTAINS NAME */
             TextField dialogueNameTextField = DSElementUtility.CreateTextField(DialogueName, callback =>
             {
                 TextField target = (TextField)callback.target;
@@ -116,17 +118,28 @@ namespace DS.Elements
             customDataContainer.Add(textureField);
 
             Foldout textFoldout = DSElementUtility.CreateFoldout("Dialogue Text");
-            TextField textTextField = DSElementUtility.CreateTextArea(Text, callback =>
+            TextField titleField = DSElementUtility.CreateTextField(Title, callback =>
+            {
+                Title = callback.newValue;
+            });
+            titleField.AddClasses
+            (
+                "ds-node__textfield",
+                "ds-node__title-textfield"
+            );
+
+            TextField textArea = DSElementUtility.CreateTextArea(Text, callback =>
             {
                 Text = callback.newValue;
             });
-            textTextField.AddClasses
+            textArea.AddClasses
             (
                 "ds-node__textfield",
                 "ds-node__quote-textfield"
             );
 
-            textFoldout.Add(textTextField);
+            textFoldout.Add(titleField);
+            textFoldout.Add(textArea);
 
             customDataContainer.Add(textFoldout);
 

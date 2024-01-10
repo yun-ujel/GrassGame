@@ -9,15 +9,17 @@ namespace DS.ScriptableObjects
     {
         [field: SerializeField] public Texture2D Texture { get; set; }
         [field: SerializeField] public string DialogueName { get; set; }
+        [field: SerializeField] public string Title { get; set; }
         [field: SerializeField] [field: TextArea()] public string Text { get; set; }
         [field: SerializeField] public List<DSDialogueChoiceData> Choices { get; set; }
         [field: SerializeField] public DSDialogueType DialogueType { get; set; }
         [field: SerializeField] public bool IsStartingDialogue { get; set; }
 
-        public void Initialize(Texture2D texture, string dialogueName, string text, List<DSDialogueChoiceData>  choices, DSDialogueType dialogueType, bool isStartingDialogue)
+        public void Initialize(Texture2D texture, string dialogueName, string title, string text, List<DSDialogueChoiceData>  choices, DSDialogueType dialogueType, bool isStartingDialogue)
         {
             Texture = texture;
             DialogueName = dialogueName;
+            Title = title;
             Text = text;
             Choices = choices;
             DialogueType = dialogueType;
