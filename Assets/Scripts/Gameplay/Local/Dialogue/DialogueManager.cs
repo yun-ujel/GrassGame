@@ -14,23 +14,25 @@ namespace GrassGame.Gameplay.Local.Dialogue
         #region Event Args
         public class OnStartDialogueEventArgs : System.EventArgs
         {
-            public OnStartDialogueEventArgs(DSDialogueSO start)
+            public OnStartDialogueEventArgs()
             {
-                StartDialogueSO = start;
-                Text = start.Text;
+
             }
-            public DSDialogueSO StartDialogueSO { get; private set; }
-            public string Text { get; private set; }
         }
         public class OnNextDialogueEventArgs : System.EventArgs
         {
             public OnNextDialogueEventArgs(DSDialogueSO next)
             {
                 NextDialogueSO = next;
-                Text = next.Text;
+                if (next != null)
+                {
+                    Text = next.Text;
+                    Title = next.Title;
+                }
             }
 
             public DSDialogueSO NextDialogueSO { get; private set; }
+            public string Title { get; private set; }
             public string Text { get; private set; }
         }
         public class OnExitDialogueEventArgs : System.EventArgs
@@ -69,7 +71,9 @@ namespace GrassGame.Gameplay.Local.Dialogue
         {
             playerInput.SwitchCurrentActionMap("UI");
 
-            OnStartDialogueEvent?.Invoke(this, new OnStartDialogueEventArgs(dialogue));
+            OnStartDialogueEvent?.Invoke(this, new OnStartDialogueEventArgs());
+            OnNextDialogueEvent?.Invoke(this, new OnNextDialogueEventArgs(dialogue));
+
             currentDialogue = dialogue;
         }
 
@@ -84,6 +88,7 @@ namespace GrassGame.Gameplay.Local.Dialogue
             }
 
             OnNextDialogueEvent?.Invoke(this, new OnNextDialogueEventArgs(chosenDialogue));
+            currentDialogue = chosenDialogue;
         }
 
         public void ExitDialogue()
