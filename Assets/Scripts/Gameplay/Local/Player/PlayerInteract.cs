@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 using GrassGame.Utilities;
+using GrassGame.Gameplay.Local.Interactables;
 
 namespace GrassGame.Gameplay.Local.Player
 {
@@ -14,10 +15,10 @@ namespace GrassGame.Gameplay.Local.Player
 
         [Space]
 
-        [SerializeField] private LayerMask interactableLayer;
+        [SerializeField] private int interactableLayer;
         [SerializeField] private SphereCollider trigger;
 
-        List<Collider> interactablesInRange;
+        private List<Collider> interactablesInRange;
 
         private void Start()
         {
@@ -40,21 +41,34 @@ namespace GrassGame.Gameplay.Local.Player
                 return;
             }
 
-            Debug.Log((int)interactableLayer);
-            FindClosestInteractable();
+            FindClosestInteractable()?.TriggerInteract();
         }
 
-        private void FindClosestInteractable()
+        private Interactable FindClosestInteractable()
         {
-            int closestInteractableIndex;
-            float closestInteractableSqrDistance;
+            if (interactablesInRange.Count <= 0)
+            {
+                return null;
+            }
 
-            
+            int closestInteractableIndex = 0;
+            float closestInteractableSqrDistance = GetSqrDistanceOfInteractable(0);
 
-            float GetSqrDistance(int i)
+            for (int i = 0; i < interactablesInRange.Count; i++)
+            {
+                if (GetSqrDistanceOfInteractable(i) > closestInteractableSqrDistance)
+                {
+                    closestInteractableIndex = i;
+                }
+            }
+
+            return interactablesInRange[closestInteractableIndex].GetComponent<Interactable>();
+
+            float GetSqrDistanceOfInteractable(int i)
             {
                 Vector3 closestPoint = interactablesInRange[i].ClosestPoint(trigger.center);
                 float sqrDistance = GeneralUtils.SqrDistance(closestPoint, trigger.center);
+
                 return sqrDistance;
             }
         }

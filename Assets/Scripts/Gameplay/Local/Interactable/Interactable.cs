@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace GrassGame.Gameplay.Local.Interactable
+namespace GrassGame.Gameplay.Local.Interactables
 {
     public abstract class Interactable : MonoBehaviour
     {
-        public abstract void OnInteract();
+        public abstract void TriggerInteract();
     }
 }

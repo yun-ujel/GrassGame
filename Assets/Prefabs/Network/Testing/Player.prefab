@@ -45,10 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8ca23d00cf54a449843b5b51ec4c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  interactableLayer: 7
   trigger: {fileID: 8801192564613013208}
+  interactablesInRange: []
 --- !u!135 &8801192564613013208
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -206,7 +205,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!1 &9171133898965556657
 GameObject:
