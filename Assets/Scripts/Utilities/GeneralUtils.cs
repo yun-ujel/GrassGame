@@ -10,5 +10,10 @@ namespace GrassGame.Utilities
         {
             return GameObject.FindGameObjectWithTag(PlayerInputTag).GetComponent<PlayerInput>();
         }
+
+        public static float SqrDistance(Vector3 target, Vector3 current)
+        {
+            return (target - current).sqrMagnitude;
+        }
     }
 }

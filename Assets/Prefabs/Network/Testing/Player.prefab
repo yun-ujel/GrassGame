@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6917400359472020548}
   - component: {fileID: 2211229875036174855}
+  - component: {fileID: 8801192564613013208}
   m_Layer: 6
   m_Name: Interact
   m_TagString: Untagged
@@ -44,6 +45,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8ca23d00cf54a449843b5b51ec4c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  trigger: {fileID: 8801192564613013208}
+--- !u!135 &8801192564613013208
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686274568869671771}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 119
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8985277427109770581
 GameObject:
   m_ObjectHideFlags: 0
