@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e145471024d6745a2f518e25a1f741, type: 3}
+  m_Name: SoundFork0
+  m_EditorClassIdentifier: 
+  <Texture>k__BackingField: {fileID: 0}
+  <DialogueName>k__BackingField: SoundFork0
+  <Text>k__BackingField: You realise the humming sound isn't a subtle vibration,
+    and more akin to someone's voice.
+  <Choices>k__BackingField:
+  - <Text>k__BackingField: Call out to the voice
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 281d975110ea455469789e65dead2135, type: 2}
+  - <Text>k__BackingField: Step back
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 68e313d4e824cca4f96eb93b97c27f72, type: 2}
+  <DialogueType>k__BackingField: 1
+  <IsStartingDialogue>k__BackingField: 0
