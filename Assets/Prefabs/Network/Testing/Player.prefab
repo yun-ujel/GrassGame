@@ -47,7 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableLayer: 7
   trigger: {fileID: 8801192564613013208}
-  interactablesInRange: []
 --- !u!135 &8801192564613013208
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -131,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 871330668
+  GlobalObjectIdHash: 3970145023
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 0
   ActiveSceneSynchronization: 0
@@ -164,7 +163,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8985277427109770581}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b94f751370b46a14eac363b028e2f788, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

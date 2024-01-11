@@ -108,6 +108,8 @@ namespace GrassGame.Gameplay.Local.Dialogue
 
             currentQuote = string.Empty + targetQuoteCharArray[0];
             quoteProgress = 1;
+
+            timeSinceLetterAdded = 0;
         }
 
         private void UpdateCurrentQuote(float delta)
@@ -119,14 +121,14 @@ namespace GrassGame.Gameplay.Local.Dialogue
             {
                 for (int i = 0; i < lettersToAdd; i++)
                 {
-                    if (quoteProgress >= targetQuoteCharArray.Length)
+                    currentQuote += targetQuoteCharArray[quoteProgress];
+                    quoteProgress++;
+
+                    if (IsQuoteFinished)
                     {
                         FinishCurrentQuote();
                         break;
                     }
-
-                    currentQuote += targetQuoteCharArray[quoteProgress];
-                    quoteProgress++;
                 }
                 timeSinceLetterAdded = timeSinceLetterAdded % rate;
             }

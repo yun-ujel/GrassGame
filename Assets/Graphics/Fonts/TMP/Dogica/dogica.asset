@@ -108,9 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: dogica
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -490288825
   material: {fileID: -7150393964054387705}
-  materialHashCode: 0
+  materialHashCode: -898693369
   m_Version: 1.1.0
   m_SourceFontFileGUID: 5d832a04a4516cf48966f03960f6f516
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 5d832a04a4516cf48966f03960f6f516, type: 3}
@@ -2596,7 +2596,7 @@ MonoBehaviour:
     italicTypeface: {fileID: 0}
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 11400000, guid: 7cb718ef8ac9afb4a84b3125bb092c5e, type: 2}
     italicTypeface: {fileID: 0}
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
