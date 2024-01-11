@@ -25,11 +25,10 @@ namespace GrassGame.Gameplay.Local.Dialogue
         private float timeSinceLetterAdded;
 
         private char[] targetQuoteCharArray;
-        private string targetQuote;
         private string currentQuote;
         private int quoteProgress;
 
-        private bool IsQuoteFinished => targetQuoteCharArray != null && quoteProgress == targetQuoteCharArray.Length && currentQuote == targetQuote;
+        private bool IsQuoteFinished => targetQuoteCharArray != null && quoteProgress == targetQuoteCharArray.Length && targetQuoteCharArray.Length > 0;
 
         [Space]
 
@@ -55,11 +54,6 @@ namespace GrassGame.Gameplay.Local.Dialogue
             }
         }
 
-        private void OnOptionSelected(object sender, DialogueOptionController.OnOptionSelectEventArgs args)
-        {
-
-        }
-
         #region Input Events
         private void OnSubmit(InputAction.CallbackContext ctx)
         {
@@ -74,7 +68,15 @@ namespace GrassGame.Gameplay.Local.Dialogue
                 return;
             }
 
-            FinishCurrentQuote();
+            if (!IsQuoteFinished)
+            {
+                FinishCurrentQuote();
+            }
+        }
+
+        private void OnOptionSelected(object sender, DialogueOptionController.OnOptionSelectEventArgs args)
+        {
+            DialogueManager.Instance.NextDialogue(args.SelectedOptionIndex);
         }
         #endregion
 
@@ -103,7 +105,6 @@ namespace GrassGame.Gameplay.Local.Dialogue
         private void SetTargetQuote(string quote)
         {
             targetQuoteCharArray = quote.ToCharArray();
-            targetQuote = quote;
 
             currentQuote = string.Empty + targetQuoteCharArray[0];
             quoteProgress = 1;
@@ -137,11 +138,15 @@ namespace GrassGame.Gameplay.Local.Dialogue
 
         private void FinishCurrentQuote()
         {
-            currentQuote = targetQuote;
+            currentQuote = currentDialogueSO.Text;
             quoteProgress = targetQuoteCharArray.Length;
 
             quoteUGUI.text = currentQuote;
-            optionController.LoadOptions(currentDialogueSO);
+            
+            if (currentDialogueSO.DialogueType == DSDialogueType.MultipleChoice)
+            {
+                optionController.LoadOptions(currentDialogueSO);
+            }
         }
         #endregion
     }

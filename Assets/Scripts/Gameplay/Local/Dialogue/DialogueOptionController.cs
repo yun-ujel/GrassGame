@@ -1,9 +1,10 @@
 using UnityEngine;
-
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 using DS.ScriptableObjects;
+using GrassGame.Utilities;
 
 namespace GrassGame.Gameplay.Local.Dialogue
 {
@@ -25,14 +26,28 @@ namespace GrassGame.Gameplay.Local.Dialogue
         public void LoadOptions(DSDialogueSO dialogue)
         {
             string[] choices = dialogue.GetChoicesAsStringArray();
-            
+
+            if (choices == null || choices.Length == 0)
+            {
+                return;
+            }
+
+            GameObject option = null;
+
             for (int i = 0; i < choices.Length; i++)
             {
+                if (i == 0)
+                {
+                    option = CreateOption(i, choices[i]);
+                    continue;
+                }
                 CreateOption(i, choices[i]);
             }
+
+            EventSystem.current.UIFocus(option);
         }
 
-        private void CreateOption(int index, string text)
+        private GameObject CreateOption(int index, string text)
         {
             GameObject clone = Instantiate(OptionPrefab, OptionsContainer);
             clone.name = text;
@@ -42,6 +57,8 @@ namespace GrassGame.Gameplay.Local.Dialogue
             option.SetText(text);
 
             option.OnClickEvent += OnButtonClick;
+
+            return clone;
         }
 
         private void OnButtonClick(object sender, DialogueOption.OnClickEventArgs args)

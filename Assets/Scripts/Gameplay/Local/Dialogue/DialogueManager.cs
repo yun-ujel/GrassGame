@@ -79,7 +79,7 @@ namespace GrassGame.Gameplay.Local.Dialogue
 
         public void NextDialogue(int choice = 0)
         {
-            DSDialogueSO chosenDialogue = currentDialogue.GetChoice(0);
+            DSDialogueSO chosenDialogue = currentDialogue.GetChoice(choice);
 
             if (chosenDialogue == null)
             {
