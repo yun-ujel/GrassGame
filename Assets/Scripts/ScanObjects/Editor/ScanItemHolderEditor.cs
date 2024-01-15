@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 using UnityEditor;
@@ -19,7 +20,7 @@ namespace GrassGame.ScanObjects.SO
         {
             base.OnInspectorGUI();
 
-            GUILayout.Space(10);
+            EditorGUILayout.Space(10);
 
             DisplayItemListInfo();
 
@@ -36,8 +37,8 @@ namespace GrassGame.ScanObjects.SO
 
             int index = holder.Items.Count;
 
-            item.name = index.ToString();
-            item.OnRemovedEvent += OnItemDestroyed;
+            item.name = $"{index}:";
+            item.OnRemovedEvent += RemoveItem;
 
             item.Data = new ScanItemData(index);
 
@@ -45,18 +46,23 @@ namespace GrassGame.ScanObjects.SO
             AssetDatabase.AddObjectToAsset(item, holder);
         }
 
-        private void OnItemDestroyed(object sender, ScanItem.OnRemovedEventArgs args)
+        private void RemoveItem(object sender, ScanItem.OnRemovedEventArgs args)
         {
             ScanItem item = (ScanItem)sender;
-            item.OnRemovedEvent -= OnItemDestroyed;
+            item.OnRemovedEvent -= RemoveItem;
 
             for (int i = args.Index + 1; i < holder.Items.Count; i++)
             {
                 holder.Items[i].Data.Index = i - 1;
-                holder.Items[i].name = (i - 1).ToString();
+                holder.Items[i].name = $"{i - 1}:";
             }
 
             holder.Items.RemoveAt(args.Index);
+
+            AssetDatabase.RemoveObjectFromAsset(item);
+            DestroyImmediate(item);
+
+            Reimport();
         }
         private void DisplayItemListInfo()
         {
@@ -65,7 +71,7 @@ namespace GrassGame.ScanObjects.SO
                 holder.Items = new List<ScanItem>();
             }
 
-            GUILayout.Label($"{holder.Items.Count} Items Stored", EditorStyles.centeredGreyMiniLabel);
+            EditorGUILayout.LabelField($"{holder.Items.Count} Items Stored", EditorStyles.centeredGreyMiniLabel);
         }
 
         private void Reimport()
