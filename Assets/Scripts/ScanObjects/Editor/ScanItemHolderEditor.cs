@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 
 using UnityEditor;
 using UnityEngine;
 
+using GrassGame.Utilities;
 namespace GrassGame.ScanObjects.SO
 {
     [CustomEditor(typeof(ScanItemHolder))]
@@ -27,7 +27,7 @@ namespace GrassGame.ScanObjects.SO
             if (GUILayout.Button("Create New Item"))
             {
                 CreateNewItem();
-                Reimport();
+                holder.Reimport();
             }
         }
 
@@ -62,7 +62,7 @@ namespace GrassGame.ScanObjects.SO
             AssetDatabase.RemoveObjectFromAsset(item);
             DestroyImmediate(item);
 
-            Reimport();
+            holder.Reimport();
         }
         private void DisplayItemListInfo()
         {
@@ -72,12 +72,6 @@ namespace GrassGame.ScanObjects.SO
             }
 
             EditorGUILayout.LabelField($"{holder.Items.Count} Items Stored", EditorStyles.centeredGreyMiniLabel);
-        }
-
-        private void Reimport()
-        {
-            string path = AssetDatabase.GetAssetPath(holder.GetInstanceID());
-            AssetDatabase.ImportAsset(path, ImportAssetOptions.ImportRecursive);
         }
     }
 }
