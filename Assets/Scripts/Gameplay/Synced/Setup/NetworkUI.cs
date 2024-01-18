@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace GrassGame.Gameplay.Synced
 {
+    [RequireComponent(typeof(Graphic))]
     public class NetworkUI : MonoBehaviour
     {
         [Header("Network Buttons")]
@@ -20,12 +21,14 @@ namespace GrassGame.Gameplay.Synced
         [SerializeField] private GameObject localButtonsParent;
 
         [SerializeField] private Button spectatorButton;
-        [SerializeField] private Button playerButton;
+        [SerializeField] private Button characterButton;
         [SerializeField] private Button scanViewButton;
 
         private void Awake()
         {
             networkButtonsParent.SetActive(true);
+            localButtonsParent.SetActive(false);
+            GetComponent<Graphic>().enabled = true;
 
             hostButton.onClick.AddListener(() =>
             {
@@ -43,9 +46,9 @@ namespace GrassGame.Gameplay.Synced
                 SwitchToLocalButtons();
             });
 
-            playerButton.onClick.AddListener(() =>
+            characterButton.onClick.AddListener(() =>
             {
-                LocalGameManager.Instance.StartPlayer();
+                LocalGameManager.Instance.StartCharacter();
                 CloseButtons();
             });
         }
@@ -60,6 +63,7 @@ namespace GrassGame.Gameplay.Synced
         {
             networkButtonsParent.SetActive(false);
             localButtonsParent.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }
