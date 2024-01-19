@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wall
+  m_Name: Trunk
   m_Shader: {fileID: -6465566751694194690, guid: 410944ed64bac0b4ea122a2d781745a3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -83,7 +83,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Ambient_Light: 0
+    - _Ambient_Light: 0.5
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -118,11 +118,11 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Base_Color: {r: 0.6698113, g: 0.538648, b: 0.41389284, a: 1}
+    - _Base_Color: {r: 0.24528301, g: 0.15587883, b: 0.100658596, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Tinting: {r: 0.29803923, g: 0.20815298, b: 0.10196077, a: 0}
+    - _Tinting: {r: 0.2264151, g: 0.08490568, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5917463263095722648
 MonoBehaviour:
