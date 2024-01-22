@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6af19cb731ba1e4e8fe3bfb664a7a14, type: 3}
+  m_Name: InspectOldHouse
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: InspectOldHouse
+  <DialogueGroups>k__BackingField:
+    list: []
+  <UngroupedDialogues>k__BackingField:
+  - {fileID: 11400000, guid: 43cc4b0d2f803d44bb3042a9a5d9fff2, type: 2}
+  - {fileID: 11400000, guid: 1392812cea813bf40b537defcdf12738, type: 2}
+  - {fileID: 11400000, guid: 249a5482aacbbc04cab713d902f48d84, type: 2}
+  - {fileID: 11400000, guid: aa636afdc2f60ff488859a551d986aa8, type: 2}

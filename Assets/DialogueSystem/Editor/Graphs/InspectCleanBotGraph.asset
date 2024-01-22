@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8a45880a6fc5a488fcd566e8b7ea92, type: 3}
+  m_Name: InspectCleanBotGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: InspectCleanBot
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <GUID>k__BackingField: e6d99987-9432-4d87-9bec-cabf2dfe0188
+    <Name>k__BackingField: Fork0
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You find a metal sphere stuck in the ground. With its
+      makeshift limbs, it looks as though it was an automaton.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Inspect
+      <TargetGUID>k__BackingField: c4cc230b-7723-4687-9528-96ec42138314
+    - <Text>k__BackingField: Step Back
+      <TargetGUID>k__BackingField: 219463d7-2790-46d5-9f7b-a597f9f3f78e
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 1
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 238, y: 412}
+  - <GUID>k__BackingField: c4cc230b-7723-4687-9528-96ec42138314
+    <Name>k__BackingField: Inspect0
+    <Title>k__BackingField: 
+    <Text>k__BackingField: There's some exposed threads coming out of the sphere,
+      but no flickering, unlike other machines you've found.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 9e3d7f98-c0bf-414b-8f22-dd87f1cd9a58
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 952, y: 348}
+  - <GUID>k__BackingField: 9e3d7f98-c0bf-414b-8f22-dd87f1cd9a58
+    <Name>k__BackingField: Inspect1
+    <Title>k__BackingField: 
+    <Text>k__BackingField: 'It''s tough to tell whether it had a practical use. It''s
+      quite a sad sight. A decomposing machine, if it even was a machine.
+
+      Despite
+      it''s impressive exterior, there''s no discernible impact this thing would''ve
+      had.'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 1664, y: 346}
+  - <GUID>k__BackingField: 219463d7-2790-46d5-9f7b-a597f9f3f78e
+    <Name>k__BackingField: StepBack
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You step back from the sphere.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 950, y: 596}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - Fork0
+  - Inspect0
+  - Inspect1
+  - StepBack
+  <OldGroupedNodeNames>k__BackingField:
+    list: []

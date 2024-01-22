@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8a45880a6fc5a488fcd566e8b7ea92, type: 3}
+  m_Name: InspectGlowingBrickGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: InspectGlowingBrick
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <GUID>k__BackingField: 74e4dc7e-f806-4408-acba-929dc2ed3abb
+    <Name>k__BackingField: Fork0
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You find a brick-shaped object stuck in the ground.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Inspect
+      <TargetGUID>k__BackingField: 8874443b-3a19-4758-b60d-f094399cca18
+    - <Text>k__BackingField: Step Back
+      <TargetGUID>k__BackingField: 38dd6202-818b-4036-aa8a-8312e9f47f34
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 1
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 47, y: 385}
+  - <GUID>k__BackingField: 38dd6202-818b-4036-aa8a-8312e9f47f34
+    <Name>k__BackingField: StepBack
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You step back from the object.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 1501, y: 679}
+  - <GUID>k__BackingField: 8874443b-3a19-4758-b60d-f094399cca18
+    <Name>k__BackingField: Inspect0
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You look closer. There's a light flickering on the surface
+      of the brick. Perhaps it's powered by something?
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Look for a power source
+      <TargetGUID>k__BackingField: b67245f7-43e4-4f17-8048-ed36efd42d7d
+    - <Text>k__BackingField: Step Back
+      <TargetGUID>k__BackingField: 38dd6202-818b-4036-aa8a-8312e9f47f34
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 1
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 768, y: 192}
+  - <GUID>k__BackingField: b67245f7-43e4-4f17-8048-ed36efd42d7d
+    <Name>k__BackingField: Inspect1
+    <Title>k__BackingField: 
+    <Text>k__BackingField: "You take the brick out of the dirt and look at it. It's
+      surprisingly light, and fits in the palm of your hand. \nThere's a few buttons
+      on the sides, and small holes, but no visible power source."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: e5cb9bef-d831-4910-b261-d832e067d5a3
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 1541, y: 190}
+  - <GUID>k__BackingField: e5cb9bef-d831-4910-b261-d832e067d5a3
+    <Name>k__BackingField: Drop
+    <Title>k__BackingField: 
+    <Text>k__BackingField: 'You decide that the object would be of no use in its
+      current state.
+
+      You drop it back in the dirt and step away.'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 2269, y: 192}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - Fork0
+  - StepBack
+  - Inspect0
+  - Inspect1
+  - Drop
+  <OldGroupedNodeNames>k__BackingField:
+    list: []

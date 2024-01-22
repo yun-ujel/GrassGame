@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8a45880a6fc5a488fcd566e8b7ea92, type: 3}
+  m_Name: InspectOldHouseGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: InspectOldHouse
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <GUID>k__BackingField: 3db7fe58-92b8-4a3d-85d9-fefe516ab003
+    <Name>k__BackingField: StepBack
+    <Title>k__BackingField: 
+    <Text>k__BackingField: Still wondering if the house is vacant, you step back
+      from it.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 804, y: 543}
+  - <GUID>k__BackingField: eda920d7-2929-452d-a9a9-2fbc38ab1007
+    <Name>k__BackingField: Fork0
+    <Title>k__BackingField: 
+    <Text>k__BackingField: 'You stand before some sort of abandoned settlement. It''s
+      in such pristine condition...
+
+      It looks as though it''s new, or it was
+      never lived in.'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Inspect
+      <TargetGUID>k__BackingField: cdea006b-03c4-4d21-a4bc-0a212362fff6
+    - <Text>k__BackingField: Step Back
+      <TargetGUID>k__BackingField: 3db7fe58-92b8-4a3d-85d9-fefe516ab003
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 1
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 63, y: 395}
+  - <GUID>k__BackingField: cdea006b-03c4-4d21-a4bc-0a212362fff6
+    <Name>k__BackingField: Inspect0
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You wonder if anybody ever lived here. If they did, they
+      must've had some sort of magic in order to maintain it.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 38ea2698-a346-4c19-8afb-584f7d62fadb
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 806, y: 292}
+  - <GUID>k__BackingField: 38ea2698-a346-4c19-8afb-584f7d62fadb
+    <Name>k__BackingField: Inspect1
+    <Title>k__BackingField: 
+    <Text>k__BackingField: It looks so old, but so new. It's in perfect condition,
+      but it's definitely old. Can it really be that old?
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 1500, y: 291}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - StepBack
+  - Fork0
+  - Inspect0
+  - Inspect1
+  <OldGroupedNodeNames>k__BackingField:
+    list: []
