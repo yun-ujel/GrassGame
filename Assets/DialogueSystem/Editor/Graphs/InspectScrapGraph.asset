@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8a45880a6fc5a488fcd566e8b7ea92, type: 3}
+  m_Name: InspectScrapGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: InspectScrap
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <GUID>k__BackingField: 2f76c78a-67ed-49b6-b442-3371f0d678e0
+    <Name>k__BackingField: StepBack
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You step back, and mind your step.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 560, y: 470}
+  - <GUID>k__BackingField: 54c320e4-5b5d-4f37-b3bc-9a01f9601fd6
+    <Name>k__BackingField: Fork0
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You stand before a small heap of scraps, of metal or machinery.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Inspect
+      <TargetGUID>k__BackingField: 0d292d74-da4f-4dbd-9db0-67e7101b3e92
+    - <Text>k__BackingField: Step Back
+      <TargetGUID>k__BackingField: 2f76c78a-67ed-49b6-b442-3371f0d678e0
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 1
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: -189, y: 323}
+  - <GUID>k__BackingField: 0d292d74-da4f-4dbd-9db0-67e7101b3e92
+    <Name>k__BackingField: Inspect0
+    <Title>k__BackingField: 
+    <Text>k__BackingField: 'There''s a plenty of variety in the parts, but you don''t
+      think they work as intended any more.
+
+      They took to the moss very handily.'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 6968bb1a-f1c2-4504-bba4-8f1cdfbbf741
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 560, y: 176}
+  - <GUID>k__BackingField: 6968bb1a-f1c2-4504-bba4-8f1cdfbbf741
+    <Name>k__BackingField: Inspect1
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You could probably take a piece or two, but you don't
+      see much purpose in that.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 1241, y: 176}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - StepBack
+  - Fork0
+  - Inspect0
+  - Inspect1
+  <OldGroupedNodeNames>k__BackingField:
+    list: []
