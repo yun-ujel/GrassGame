@@ -15,11 +15,14 @@ MonoBehaviour:
   <Texture>k__BackingField: {fileID: 0}
   <DialogueName>k__BackingField: Inspect1
   <Title>k__BackingField: 
-  <Text>k__BackingField: "You take the brick out of the dirt and look at it. It's
-    surprisingly light, and fits in the palm of your hand. \nThere's a few buttons
-    on the sides, and small holes, but no visible power source."
+  <Text>k__BackingField: 'It''s tough to tell whether it had a practical use. It''s
+    quite a sad sight. A decomposing machine, if it even was a machine.
+
+    Despite
+    it''s impressive exterior, there''s no discernible impact this thing would''ve
+    had.'
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 2d3570bc75a34d945a41cc6087d9d298, type: 2}
+    <NextDialogue>k__BackingField: {fileID: 0}
   <DialogueType>k__BackingField: 0
   <IsStartingDialogue>k__BackingField: 0

@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6af19cb731ba1e4e8fe3bfb664a7a14, type: 3}
-  m_Name: InspectGlowingBrick
+  m_Name: InspectPillar
   m_EditorClassIdentifier: 
-  <FileName>k__BackingField: InspectGlowingBrick
+  <FileName>k__BackingField: InspectPillar
   <DialogueGroups>k__BackingField:
     list: []
   <UngroupedDialogues>k__BackingField:
-  - {fileID: 11400000, guid: bdbcb65c19ee6314ca3252be3ce4ef13, type: 2}
-  - {fileID: 11400000, guid: e3d84c563548d9646838816ade3e6ed1, type: 2}
-  - {fileID: 11400000, guid: d9248750702bb9d49b45e5d731d2a060, type: 2}
-  - {fileID: 11400000, guid: 53d13f02b369e2b41a9537b00b775b57, type: 2}
-  - {fileID: 11400000, guid: 2d3570bc75a34d945a41cc6087d9d298, type: 2}
+  - {fileID: 11400000, guid: a1aee6261c24bc6469c64406408692f5, type: 2}
+  - {fileID: 11400000, guid: 54601ac43c1db0d468efa750242c0610, type: 2}
+  - {fileID: 11400000, guid: b7d26e75cce5d3f41b0ad47b5e9054a8, type: 2}
+  - {fileID: 11400000, guid: 1eae2862f70fe6b44b1f3509da08473b, type: 2}

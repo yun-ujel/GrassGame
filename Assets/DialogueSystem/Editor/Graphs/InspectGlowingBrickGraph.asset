@@ -46,29 +46,46 @@ MonoBehaviour:
       of the brick. Perhaps it's powered by something?
     <Choices>k__BackingField:
     - <Text>k__BackingField: Look for a power source
-      <TargetGUID>k__BackingField: 627098b0-6293-4d2e-ae50-3be48bcd6253
+      <TargetGUID>k__BackingField: b67245f7-43e4-4f17-8048-ed36efd42d7d
     - <Text>k__BackingField: Step Back
       <TargetGUID>k__BackingField: 38dd6202-818b-4036-aa8a-8312e9f47f34
     <GroupGUID>k__BackingField: 
     <DialogueType>k__BackingField: 1
     <Texture>k__BackingField: {fileID: 0}
     <Position>k__BackingField: {x: 768, y: 192}
-  - <GUID>k__BackingField: 627098b0-6293-4d2e-ae50-3be48bcd6253
+  - <GUID>k__BackingField: b67245f7-43e4-4f17-8048-ed36efd42d7d
     <Name>k__BackingField: Inspect1
     <Title>k__BackingField: 
-    <Text>k__BackingField: 
+    <Text>k__BackingField: "You take the brick out of the dirt and look at it. It's
+      surprisingly light, and fits in the palm of your hand. \nThere's a few buttons
+      on the sides, and small holes, but no visible power source."
     <Choices>k__BackingField:
-    - <Text>k__BackingField: New Choice
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: e5cb9bef-d831-4910-b261-d832e067d5a3
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 1541, y: 190}
+  - <GUID>k__BackingField: e5cb9bef-d831-4910-b261-d832e067d5a3
+    <Name>k__BackingField: Drop
+    <Title>k__BackingField: 
+    <Text>k__BackingField: 'You decide that the object would be of no use in its
+      current state.
+
+      You drop it back in the dirt and step away.'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
       <TargetGUID>k__BackingField: 
     <GroupGUID>k__BackingField: 
-    <DialogueType>k__BackingField: 1
+    <DialogueType>k__BackingField: 0
     <Texture>k__BackingField: {fileID: 0}
-    <Position>k__BackingField: {x: 1533, y: 192}
+    <Position>k__BackingField: {x: 2269, y: 192}
   <OldGroupNames>k__BackingField: []
   <OldUngroupedNodeNames>k__BackingField:
   - Fork0
   - StepBack
   - Inspect0
   - Inspect1
+  - Drop
   <OldGroupedNodeNames>k__BackingField:
     list: []

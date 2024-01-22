@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e145471024d6745a2f518e25a1f741, type: 3}
+  m_Name: Fork0
+  m_EditorClassIdentifier: 
+  <Texture>k__BackingField: {fileID: 0}
+  <DialogueName>k__BackingField: Fork0
+  <Title>k__BackingField: 
+  <Text>k__BackingField: 'You stand before some sort of abandoned settlement. It''s
+    in such pristine condition...
+
+    It looks as though it''s new, or it was never
+    lived in.'
+  <Choices>k__BackingField:
+  - <Text>k__BackingField: Inspect
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 249a5482aacbbc04cab713d902f48d84, type: 2}
+  - <Text>k__BackingField: Step Back
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 43cc4b0d2f803d44bb3042a9a5d9fff2, type: 2}
+  <DialogueType>k__BackingField: 1
+  <IsStartingDialogue>k__BackingField: 1
