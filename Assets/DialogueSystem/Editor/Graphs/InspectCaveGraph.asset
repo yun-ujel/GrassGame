@@ -40,20 +40,6 @@ MonoBehaviour:
     <DialogueType>k__BackingField: 1
     <Texture>k__BackingField: {fileID: 0}
     <Position>k__BackingField: {x: 890, y: 192}
-  - <GUID>k__BackingField: f6f08a6a-93c9-4888-8663-a1a10f636371
-    <Name>k__BackingField: Inspect1
-    <Title>k__BackingField: 
-    <Text>k__BackingField: 'You step forward a little, and hear your footstep echo
-      all throughout the emptiness of the cave,
-
-      followed by a loud thud.'
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <TargetGUID>k__BackingField: 6a8ae9a0-689f-47fe-99a8-4a64cf23b6c1
-    <GroupGUID>k__BackingField: 
-    <DialogueType>k__BackingField: 0
-    <Texture>k__BackingField: {fileID: 0}
-    <Position>k__BackingField: {x: 1569, y: 194}
   - <GUID>k__BackingField: 6a8ae9a0-689f-47fe-99a8-4a64cf23b6c1
     <Name>k__BackingField: Inspect2
     <Title>k__BackingField: 
@@ -78,12 +64,24 @@ MonoBehaviour:
     <DialogueType>k__BackingField: 0
     <Texture>k__BackingField: {fileID: 0}
     <Position>k__BackingField: {x: 890, y: 471}
+  - <GUID>k__BackingField: f6f08a6a-93c9-4888-8663-a1a10f636371
+    <Name>k__BackingField: Inspect1
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You step forward a little, and hear your footstep echo
+      all throughout the emptiness of the cave, followed by a loud thud.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 6a8ae9a0-689f-47fe-99a8-4a64cf23b6c1
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 1571, y: 194}
   <OldGroupNames>k__BackingField: []
   <OldUngroupedNodeNames>k__BackingField:
   - Fork0
   - Inspect0
-  - Inspect1
   - Inspect2
   - StepBack
+  - Inspect1
   <OldGroupedNodeNames>k__BackingField:
     list: []

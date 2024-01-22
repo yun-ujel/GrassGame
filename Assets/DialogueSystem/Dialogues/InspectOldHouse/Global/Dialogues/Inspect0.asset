@@ -16,7 +16,7 @@ MonoBehaviour:
   <DialogueName>k__BackingField: Inspect0
   <Title>k__BackingField: 
   <Text>k__BackingField: You wonder if anybody ever lived here. If they did, they
-    must've had some sort of magic in order to maintain it.
+    must've had some crazy process in order to maintain it.
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: aa636afdc2f60ff488859a551d986aa8, type: 2}

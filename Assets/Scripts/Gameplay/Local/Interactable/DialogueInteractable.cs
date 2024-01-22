@@ -5,7 +5,7 @@ using DS;
 
 namespace GrassGame.Gameplay.Local.Interactables
 {
-    [RequireComponent(typeof(DSDialogue))]
+    [RequireComponent(typeof(DSDialogue))] // Requires a collider set to the 'Interactable' layer
     public class DialogueInteractable : Interactable
     {
         DSDialogue storedDialogue;

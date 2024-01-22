@@ -26,5 +26,13 @@ namespace GrassGame.Utilities
             eventSystem.sendNavigationEvents = true;
             eventSystem.enabled = true;
         }
+
+        public static Vector3 RemapDirection(this Vector2 movement, Transform transform)
+        {
+            Vector3 direction = movement.y * transform.forward; // Forward Movement
+            direction += movement.x * transform.right; // Horizontal Movement
+            direction.y = 0f;
+            return direction;
+        }
     }
 }
