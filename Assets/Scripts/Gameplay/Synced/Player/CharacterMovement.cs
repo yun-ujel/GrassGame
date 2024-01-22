@@ -6,67 +6,18 @@ using Unity.Netcode;
 using UnityEngine.InputSystem;
 
 using GrassGame.Utilities;
+using GrassGame.Gameplay.Synced.Player.Data;
 
 namespace GrassGame.Gameplay.Synced.Player
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class PlayerMovement : NetworkBehaviour
+    public class CharacterMovement : NetworkBehaviour
     {
         #region Parameters
-        struct PlayerMovementData : INetworkSerializable
-        {
-            #region Private
-            private Vector3 velocity;
-            private Vector3 moveDirection;
-            private Vector3 position;
-            #endregion
 
-            #region Public
-            public Vector3 MoveDirection
-            {
-                get { return moveDirection; }
-                set { moveDirection = value; }
-            }
+        private NetworkVariable<CharacterMovementData> networkMovementData = new(CharacterMovementData.Zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
-            public Vector3 Velocity
-            {
-                get { return velocity; }
-                set { velocity = value; }
-            }
-
-            public Vector3 Position
-            {
-                get { return position; }
-                set { position = value; }
-            }
-
-            public static PlayerMovementData Zero
-            {
-                get
-                {
-                    return new PlayerMovementData(Vector3.zero, Vector3.zero, Vector3.zero);
-                }
-            }
-            #endregion
-
-            public PlayerMovementData(Vector3 velocity, Vector3 moveDirection, Vector3 position)
-            {
-                this.velocity = velocity;
-                this.moveDirection = moveDirection;
-                this.position = position;
-            }
-
-            public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
-            {
-                serializer.SerializeValue(ref velocity);
-                serializer.SerializeValue(ref moveDirection);
-                serializer.SerializeValue(ref position);
-            }
-        }
-
-        private NetworkVariable<PlayerMovementData> networkMovementData = new(PlayerMovementData.Zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-
-        private PlayerMovementData movementData;
+        private CharacterMovementData movementData;
 
         private Rigidbody body;
 
