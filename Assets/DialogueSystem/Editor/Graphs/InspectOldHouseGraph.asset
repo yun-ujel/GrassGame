@@ -30,11 +30,9 @@ MonoBehaviour:
   - <GUID>k__BackingField: eda920d7-2929-452d-a9a9-2fbc38ab1007
     <Name>k__BackingField: Fork0
     <Title>k__BackingField: 
-    <Text>k__BackingField: 'You stand before some sort of abandoned settlement. It''s
-      in such pristine condition...
-
-      It looks as though it''s new, or it was
-      never lived in.'
+    <Text>k__BackingField: You stand before some sort of abandoned settlement. It's
+      in such pristine condition... It looks as though it's new, or it was never
+      lived in.
     <Choices>k__BackingField:
     - <Text>k__BackingField: Inspect
       <TargetGUID>k__BackingField: cdea006b-03c4-4d21-a4bc-0a212362fff6
@@ -48,7 +46,7 @@ MonoBehaviour:
     <Name>k__BackingField: Inspect0
     <Title>k__BackingField: 
     <Text>k__BackingField: You wonder if anybody ever lived here. If they did, they
-      must've had some sort of magic in order to maintain it.
+      must've had some crazy process in order to maintain it.
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <TargetGUID>k__BackingField: 38ea2698-a346-4c19-8afb-584f7d62fadb

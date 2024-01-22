@@ -76,9 +76,7 @@ namespace GrassGame.Gameplay.Local.Player
                     mainCamera = Camera.main;
                 }
 
-                Vector3 direction = movement.y * mainCamera.transform.forward; // Forward Movement
-                direction += movement.x * mainCamera.transform.right; // Horizontal Movement
-                direction.y = 0f;
+                Vector3 direction = GeneralUtils.RemapDirection(movement, mainCamera.transform);
 
                 direction.Normalize();
 

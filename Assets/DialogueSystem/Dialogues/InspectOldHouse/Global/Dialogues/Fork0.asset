@@ -15,11 +15,9 @@ MonoBehaviour:
   <Texture>k__BackingField: {fileID: 0}
   <DialogueName>k__BackingField: Fork0
   <Title>k__BackingField: 
-  <Text>k__BackingField: 'You stand before some sort of abandoned settlement. It''s
-    in such pristine condition...
-
-    It looks as though it''s new, or it was never
-    lived in.'
+  <Text>k__BackingField: You stand before some sort of abandoned settlement. It's
+    in such pristine condition... It looks as though it's new, or it was never lived
+    in.
   <Choices>k__BackingField:
   - <Text>k__BackingField: Inspect
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: 249a5482aacbbc04cab713d902f48d84, type: 2}
