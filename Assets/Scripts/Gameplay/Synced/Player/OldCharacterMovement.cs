@@ -11,7 +11,7 @@ using GrassGame.Gameplay.Synced.Player.Data;
 namespace GrassGame.Gameplay.Synced.Player
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class CharacterMovement : NetworkBehaviour
+    public class OldCharacterMovement : NetworkBehaviour
     {
         #region Parameters
 

@@ -1,6 +1,8 @@
 using GrassGame.Gameplay.Synced;
 using UnityEngine;
 
+using GrassGame.Gameplay.Synced.Player.Enumerations;
+
 namespace GrassGame.Gameplay.Local
 {
     public class LocalGameManager : MonoBehaviour
@@ -8,8 +10,11 @@ namespace GrassGame.Gameplay.Local
         public static LocalGameManager Instance { get; private set; }
         public static PlayerSync LocalPlayer { get; private set; }
 
-        [Header("Prefabs: Writers")]
-        [SerializeField] private GameObject characterWriterPrefab;
+        [Header("Prefabs: Local")]
+        [SerializeField] private GameObject localCharacterPrefab;
+
+        [Header("Prefabs: Readers")]
+        [SerializeField] private GameObject characterReaderPrefab;
 
         private void Awake()
         {
@@ -31,16 +36,32 @@ namespace GrassGame.Gameplay.Local
             LocalPlayer = player;
         }
 
-        private void LoadOtherCharacters()
+        public void AddSyncedPlayer(PlayerSync player)
         {
+            Debug.Log($"Adding Synced Player {player}; Of Type {player.networkPlayerType.Value}");
+            if (player.networkPlayerType.Value == PlayerType.NotSet)
+            {
+                player.networkPlayerType.OnValueChanged += player.OnTypeSet;
+                return;
+            }
 
+            OnTypeSet(player);
+        }
+
+        public void OnTypeSet(PlayerSync player)
+        {
+            if (player.networkPlayerType.Value == PlayerType.Character)
+            {
+                GameObject character = Instantiate(characterReaderPrefab);
+                player.StartCharacter(character);
+            }
         }
 
         #region Start Methods
         public void StartCharacter()
         {
-            GameObject character = Instantiate(characterWriterPrefab);
-            LocalPlayer.StartCharacter(character.GetComponent<Rigidbody>());
+            GameObject character = Instantiate(localCharacterPrefab);
+            LocalPlayer.StartCharacter(character);
         }
 
         /*
