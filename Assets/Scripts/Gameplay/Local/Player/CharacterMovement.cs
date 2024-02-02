@@ -80,8 +80,6 @@ namespace GrassGame.Gameplay.Local.Player
                 direction += movement.x * mainCamera.transform.right; // Horizontal Movement
                 direction.y = 0f;
 
-                direction.Normalize();
-
                 moveDirection = direction;
                 return;
             }

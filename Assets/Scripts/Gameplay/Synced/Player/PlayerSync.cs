@@ -15,6 +15,7 @@ namespace GrassGame.Gameplay.Synced
 
         #region Character
         private NetworkVariable<CharacterMovementData> characterMovementData = new(CharacterMovementData.Zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        public Vector3 Position => characterMovementData.Value.Position;
 
         private Rigidbody body;
         #endregion

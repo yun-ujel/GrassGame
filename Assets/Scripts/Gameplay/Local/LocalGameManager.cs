@@ -54,6 +54,8 @@ namespace GrassGame.Gameplay.Local
             {
                 GameObject character = Instantiate(characterReaderPrefab);
                 player.StartCharacter(character);
+
+                character.transform.position = player.Position;
             }
         }
 
@@ -62,19 +64,19 @@ namespace GrassGame.Gameplay.Local
         {
             GameObject character = Instantiate(localCharacterPrefab);
             LocalPlayer.StartCharacter(character);
+            Camera.main.GetComponent<CameraFollow>().SetTarget(character.transform);
         }
 
-        /*
         public void StartSpectator()
         {
-            
+
         }
 
         public void StartScanView()
         {
-            
+
         }
-        */
+        
         #endregion
     }
 }
