@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6af19cb731ba1e4e8fe3bfb664a7a14, type: 3}
+  m_Name: InspectMoundOfDirt
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: InspectMoundOfDirt
+  <DialogueGroups>k__BackingField:
+    list: []
+  <UngroupedDialogues>k__BackingField:
+  - {fileID: 11400000, guid: 70b902ee15a595d468dba1fe2fbe1684, type: 2}
+  - {fileID: 11400000, guid: f31fe0b3edfdad44bb4e0df4b7d3c1ed, type: 2}
+  - {fileID: 11400000, guid: f1f05fb67f5fb264da88e94130499bbe, type: 2}
+  - {fileID: 11400000, guid: 95dcebf18173f37429697a9d64c8ba34, type: 2}

@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8a45880a6fc5a488fcd566e8b7ea92, type: 3}
+  m_Name: InspectReceiptGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: InspectReceipt
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <GUID>k__BackingField: 96cd8d00-c876-426b-bdac-2f8c4c0186aa
+    <Name>k__BackingField: Fork0
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You find a long piece of paper. Surprisingly, it's stood
+      the test of time.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Read Contents
+      <TargetGUID>k__BackingField: b1791b52-3a3e-4fda-a215-e60f02fc38f8
+    - <Text>k__BackingField: Step Back
+      <TargetGUID>k__BackingField: ab767497-b3a0-4846-8005-6844bafa6b4a
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 1
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: -14, y: 375}
+  - <GUID>k__BackingField: ab767497-b3a0-4846-8005-6844bafa6b4a
+    <Name>k__BackingField: StepBack
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You step away from the paper. With how long it's lasted,
+      it's probably not going anywhere.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 768, y: 515}
+  - <GUID>k__BackingField: b1791b52-3a3e-4fda-a215-e60f02fc38f8
+    <Name>k__BackingField: ReadContents0
+    <Title>k__BackingField: 
+    <Text>k__BackingField: 'Kath3r1ne member subscription ..... 11.50
+
+      SmartClean
+      premium subscription ..... 21.50
+
+      Kath3r1ne skin ..... 13.00
+
+      Bartender
+      skin ..... 9.50
+
+      [unintelligible]'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 48ce1b2b-489a-47d8-ab91-747d9baca8e3
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 769, y: 213}
+  - <GUID>k__BackingField: 48ce1b2b-489a-47d8-ab91-747d9baca8e3
+    <Name>k__BackingField: ReadContents1
+    <Title>k__BackingField: 
+    <Text>k__BackingField: You can make out most of what's on the paper. With the
+      layout of it, you can tell it was for commerce.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: aaf4fe55-7d38-4bdd-8374-ccd9478b3234
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 1470, y: 214}
+  - <GUID>k__BackingField: aaf4fe55-7d38-4bdd-8374-ccd9478b3234
+    <Name>k__BackingField: ReadContents2
+    <Title>k__BackingField: 
+    <Text>k__BackingField: '...To have your purchases immortalised seems very embarrassing.
+      This person bought a dozen... skins?
+
+      Sounds morbid.'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <TargetGUID>k__BackingField: 
+    <GroupGUID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Texture>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 2167, y: 214}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - Fork0
+  - StepBack
+  - ReadContents0
+  - ReadContents1
+  - ReadContents2
+  <OldGroupedNodeNames>k__BackingField:
+    list: []

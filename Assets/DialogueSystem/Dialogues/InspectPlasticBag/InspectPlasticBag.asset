@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6af19cb731ba1e4e8fe3bfb664a7a14, type: 3}
+  m_Name: InspectPlasticBag
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: InspectPlasticBag
+  <DialogueGroups>k__BackingField:
+    list: []
+  <UngroupedDialogues>k__BackingField:
+  - {fileID: 11400000, guid: 47aeeb55f4f5bdf4cba3e72ecf08c944, type: 2}
+  - {fileID: 11400000, guid: 7d21be51f38c2624387ff34bc5f744b5, type: 2}
+  - {fileID: 11400000, guid: d4519005fed9a484499bca860045a4cc, type: 2}
+  - {fileID: 11400000, guid: 725fae062a3f24645884c74316d45bd6, type: 2}
+  - {fileID: 11400000, guid: 014b7688d4e51a7449cfdee454d4d73e, type: 2}

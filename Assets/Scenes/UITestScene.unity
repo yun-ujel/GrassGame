@@ -628,9 +628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8ca0475c20dc84896ac0d875ff2ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueContainer: {fileID: 11400000, guid: 36180051cbeb06a42a3895b554b2051f, type: 2}
+  dialogueContainer: {fileID: 11400000, guid: 346c368aea6256847b89a6e6f85a4cc7, type: 2}
   dialogueGroup: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: 65fd41dd35939ee4ab81fb6259a42e94, type: 2}
+  dialogue: {fileID: 11400000, guid: ce9e4c5bdb8839846a692afab27e33af, type: 2}
   groupedDialogues: 0
   startingDialoguesOnly: 0
   selectedDialogueGroupIndex: 0
@@ -820,6 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portraitRoot: {fileID: 73364480}
   portraitDisplay: {fileID: 695165434}
+  quoteUGUI: {fileID: 0}
 --- !u!1 &623935755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3668,7 +3669,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -187.99994, y: 0}
-  m_SizeDelta: {x: -472, y: -24}
+  m_SizeDelta: {x: -472.00012, y: -24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1844616949
 MonoBehaviour:
