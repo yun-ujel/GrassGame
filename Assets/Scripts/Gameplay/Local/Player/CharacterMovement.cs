@@ -76,15 +76,23 @@ namespace GrassGame.Gameplay.Local.Player
                     mainCamera = Camera.main;
                 }
 
-                Vector3 direction = movement.y * mainCamera.transform.forward; // Forward Movement
-                direction += movement.x * mainCamera.transform.right; // Horizontal Movement
-                direction.y = 0f;
+                Vector3 forward = Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up);
+                Vector3 right = Vector3.ProjectOnPlane(mainCamera.transform.right, Vector3.up);
+
+                Vector3 direction = movement.y * forward; // Forward Movement
+                direction += movement.x * right * GetXMultiplier(); // Horizontal Movement
 
                 moveDirection = direction;
                 return;
             }
 
             moveDirection = new Vector3(movement.x, 0f, movement.y);
+        }
+
+        private float GetXMultiplier()
+        {
+            Vector3 skewed = Quaternion.Euler(mainCamera.transform.rotation.eulerAngles.x, 0f, 0f) * Vector3.forward;
+            return skewed.z;
         }
     }
 }
