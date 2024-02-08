@@ -20,9 +20,20 @@ namespace GrassGame.Gameplay.Synced
         [Header("Local Buttons")]
         [SerializeField] private GameObject localButtonsParent;
 
+        [Space]
+
         [SerializeField] private Button spectatorButton;
         [SerializeField] private Button characterButton;
         [SerializeField] private Button scanViewButton;
+
+        [Header("Character Buttons")]
+        [SerializeField] private GameObject characterButtonsParent;
+
+        [Space]
+
+        [SerializeField] private Button archibaldButton;
+        [SerializeField] private Button jacksonButton;
+        [SerializeField] private Button sheilaButton;
 
         private void Awake()
         {
@@ -48,7 +59,6 @@ namespace GrassGame.Gameplay.Synced
 
             characterButton.onClick.AddListener(() =>
             {
-                LocalGameManager.Instance.StartCharacter();
                 CloseButtons();
             });
         }
