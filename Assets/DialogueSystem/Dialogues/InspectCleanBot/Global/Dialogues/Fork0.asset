@@ -15,8 +15,8 @@ MonoBehaviour:
   <Texture>k__BackingField: {fileID: 0}
   <DialogueName>k__BackingField: Fork0
   <Title>k__BackingField: 
-  <Text>k__BackingField: You find a metal sphere stuck in the ground. With its makeshift
-    limbs, it looks as though it was an automaton.
+  <Text>k__BackingField: You find a damaged sculpture, overgrown with vines. With
+    the glass and lights on it, it looks like some sort of automaton.
   <Choices>k__BackingField:
   - <Text>k__BackingField: Inspect
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: d47c1a43d2688ec42827c4e4ef155a15, type: 2}
