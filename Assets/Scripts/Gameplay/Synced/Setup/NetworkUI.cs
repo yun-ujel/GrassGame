@@ -1,9 +1,11 @@
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 using GrassGame.Gameplay.Synced.Player.Enumerations;
 using GrassGame.Gameplay.Local;
+using GrassGame.Utilities;
 
 namespace GrassGame.Gameplay.Synced
 {
@@ -29,7 +31,7 @@ namespace GrassGame.Gameplay.Synced
         [SerializeField] private Button scanViewButton;
 
         [Header("Character Buttons")]
-        [SerializeField] private GameObject characterButtonsParent;
+        [SerializeField] private GameObject characterSelectParent;
 
         [Space]
 
@@ -41,29 +43,37 @@ namespace GrassGame.Gameplay.Synced
         {
             networkButtonsParent.SetActive(true);
             localButtonsParent.SetActive(false);
+            characterSelectParent.SetActive(false);
+
             GetComponent<Graphic>().enabled = true;
 
+            SubscribeToAllButtons();
+        }
+
+        private void SubscribeToAllButtons()
+        {
+            
             hostButton.onClick.AddListener(() =>
             {
                 _ = NetworkManager.Singleton.StartHost();
-                SwitchToLocalButtons();
+                OpenLocalButtons();
             });
             serverButton.onClick.AddListener(() =>
             {
                 _ = NetworkManager.Singleton.StartServer();
-                SwitchToLocalButtons();
+                OpenLocalButtons();
             });
             clientButton.onClick.AddListener(() =>
             {
                 _ = NetworkManager.Singleton.StartClient();
-                SwitchToLocalButtons();
+                OpenLocalButtons();
             });
-
+            
             characterButton.onClick.AddListener(() =>
             {
-                CloseButtons();
+                OpenCharacterSelect();
             });
-
+            
             archibaldButton.onClick.AddListener(() =>
             {
                 StartCharacter(CharacterType.Archibald);
@@ -78,22 +88,31 @@ namespace GrassGame.Gameplay.Synced
             });
         }
 
-        private void SwitchToLocalButtons()
+        private void OpenCharacterSelect()
+        {
+            networkButtonsParent.SetActive(false);
+            localButtonsParent.SetActive(false);
+            characterSelectParent.SetActive(true);
+        }
+        private void OpenLocalButtons()
         {
             networkButtonsParent.SetActive(false);
             localButtonsParent.SetActive(true);
         }
 
-        private void CloseButtons()
+        private void CloseAllButtons()
         {
             networkButtonsParent.SetActive(false);
             localButtonsParent.SetActive(false);
+            characterSelectParent.SetActive(false);
+            GetComponent<Graphic>().enabled = false;
             gameObject.SetActive(false);
         }
 
         private void StartCharacter(CharacterType characterType)
         {
             LocalGameManager.Instance.StartCharacter(characterType);
+            CloseAllButtons();
         }
     }
 }

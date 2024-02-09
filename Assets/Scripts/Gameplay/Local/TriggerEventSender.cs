@@ -1,3 +1,4 @@
+using GrassGame.Utilities;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,26 @@ namespace GrassGame.Gameplay.Local
             {
                 Debug.LogError($"TriggerEventSender Trigger {Trigger} is set to act as a Collider");
             }
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (Trigger == null)
+            {
+                Trigger = GetComponent<Collider>();
+            }
+            Vector3 min = Trigger.bounds.min;
+            Vector3 max = Trigger.bounds.max;
+            max.y = min.y;
+
+            Vector3 corner1 = new Vector3(min.x, min.y, max.z);
+            Vector3 corner2 = new Vector3(max.x, min.y, min.z);
+
+            Debug.DrawLine(min, corner1);
+            Debug.DrawLine(min, corner2);
+
+            Debug.DrawLine(max, corner1);
+            Debug.DrawLine(max, corner2);
         }
     }
 }

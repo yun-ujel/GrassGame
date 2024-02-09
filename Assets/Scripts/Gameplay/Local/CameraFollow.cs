@@ -21,8 +21,8 @@ namespace GrassGame.Gameplay.Local
 
         [Header("Bounds")]
         [SerializeField] private TriggerEventSender[] triggers;
-        [SerializeField, Tooltip("If false, this script will only follow the target if it's inside a trigger.")]
-        private bool followOutsideTriggers;
+        [SerializeField, Tooltip("If true, this script will only follow the target if it's inside a trigger.")]
+        private bool followInsideTriggers;
 
         private bool[] enteredTriggers;
 
@@ -110,7 +110,7 @@ namespace GrassGame.Gameplay.Local
                 }
             }
 
-            return insideTriggerIndex == -1 ? followOutsideTriggers : !followOutsideTriggers;
+            return insideTriggerIndex == -1 ? followInsideTriggers : !followInsideTriggers;
         }
         #endregion
     }

@@ -58,7 +58,23 @@ namespace GrassGame.Gameplay.Local
             if (player.networkPlayerType.Value == PlayerType.Character)
             {
                 GameObject character = Instantiate(characterReaderPrefab);
+
+                GameObject visual = null;
+                switch (player.characterType.Value)
+                {
+                    case CharacterType.Jackson:
+                        visual = Instantiate(jacksonVisualPrefab, character.transform);
+                        break;
+                    case CharacterType.Archibald:
+                        visual = Instantiate(archibaldVisualPrefab, character.transform);
+                        break;
+                    case CharacterType.Sheila:
+                        visual = Instantiate(sheilaVisualPrefab, character.transform);
+                        break;
+                }
+
                 player.StartCharacter(character);
+                visual.GetComponent<CharacterAnimation>().SetReference(character);
 
                 character.transform.position = player.Position;
             }
@@ -75,13 +91,13 @@ namespace GrassGame.Gameplay.Local
             switch (characterType)
             {
                 case CharacterType.Jackson:
-                    visual = Instantiate(jacksonVisualPrefab);
+                    visual = Instantiate(jacksonVisualPrefab, character.transform);
                     break;
                 case CharacterType.Archibald:
-                    visual = Instantiate(archibaldVisualPrefab);
+                    visual = Instantiate(archibaldVisualPrefab, character.transform);
                     break;
                 case CharacterType.Sheila:
-                    visual = Instantiate(sheilaVisualPrefab);
+                    visual = Instantiate(sheilaVisualPrefab, character.transform);
                     break;
             }
 

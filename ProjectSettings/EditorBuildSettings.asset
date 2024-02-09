@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NetworkTestScene.unity
     guid: 0eaeada00087c9f4ebb7b5e052dda538
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UITestScene.unity
     guid: a2f6caac774abb241bcc6b2d733766a3
   - enabled: 1

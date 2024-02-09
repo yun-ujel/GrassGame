@@ -106,19 +106,45 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WalkBack_0
+      name: WalkBack_5
       rect:
         serializedVersion: 2
-        x: 0
+        x: 105
         y: 0
         width: 20
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,15 +157,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkBack_1
+      name: WalkBack_6
       rect:
         serializedVersion: 2
-        x: 21
+        x: 126
         y: 0
         width: 20
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,15 +178,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkBack_2
+      name: WalkBack_7
       rect:
         serializedVersion: 2
-        x: 42
+        x: 147
         y: 0
         width: 20
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,15 +199,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkBack_3
+      name: WalkBack_8
       rect:
         serializedVersion: 2
-        x: 63
+        x: 168
         y: 0
         width: 20
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,15 +220,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkBack_4
+      name: WalkBack_0
       rect:
         serializedVersion: 2
-        x: 84
+        x: 0
         y: 0
         width: 20
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,15 +241,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkBack_5
+      name: WalkBack_1
       rect:
         serializedVersion: 2
-        x: 105
+        x: 21
         y: 0
         width: 20
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,15 +262,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkBack_6
+      name: WalkBack_2
       rect:
         serializedVersion: 2
-        x: 126
+        x: 42
         y: 0
         width: 20
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,15 +283,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkBack_7
+      name: WalkBack_3
       rect:
         serializedVersion: 2
-        x: 147
+        x: 63
         y: 0
         width: 20
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,15 +304,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkBack_8
+      name: WalkBack_4
       rect:
         serializedVersion: 2
-        x: 168
+        x: 84
         y: 0
         width: 20
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
