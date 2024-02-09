@@ -12,6 +12,11 @@ namespace GrassGame.Gameplay.Local
 
         [Header("Prefabs: Local")]
         [SerializeField] private GameObject localCharacterPrefab;
+        [Space]
+        [SerializeField] private GameObject archibaldVisualPrefab;
+        [SerializeField] private GameObject jacksonVisualPrefab;
+        [SerializeField] private GameObject sheilaVisualPrefab;
+
 
         [Header("Prefabs: Readers")]
         [SerializeField] private GameObject characterReaderPrefab;
@@ -60,11 +65,27 @@ namespace GrassGame.Gameplay.Local
         }
 
         #region Start Methods
-        public void StartCharacter()
+        public void StartCharacter(CharacterType characterType)
         {
             GameObject character = Instantiate(localCharacterPrefab);
             LocalPlayer.StartCharacter(character);
             Camera.main.GetComponent<CameraFollow>().SetTarget(character.transform);
+
+            GameObject visual = null;
+            switch (characterType)
+            {
+                case CharacterType.Jackson:
+                    visual = Instantiate(jacksonVisualPrefab);
+                    break;
+                case CharacterType.Archibald:
+                    visual = Instantiate(archibaldVisualPrefab);
+                    break;
+                case CharacterType.Sheila:
+                    visual = Instantiate(sheilaVisualPrefab);
+                    break;
+            }
+
+            visual.GetComponent<CharacterAnimation>().SetReference(character);
         }
 
         public void StartSpectator()
@@ -76,7 +97,7 @@ namespace GrassGame.Gameplay.Local
         {
 
         }
-        
+
         #endregion
     }
 }

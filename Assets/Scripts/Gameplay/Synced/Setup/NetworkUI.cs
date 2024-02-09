@@ -1,7 +1,9 @@
-using GrassGame.Gameplay.Local;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
+
+using GrassGame.Gameplay.Synced.Player.Enumerations;
+using GrassGame.Gameplay.Local;
 
 namespace GrassGame.Gameplay.Synced
 {
@@ -61,6 +63,19 @@ namespace GrassGame.Gameplay.Synced
             {
                 CloseButtons();
             });
+
+            archibaldButton.onClick.AddListener(() =>
+            {
+                StartCharacter(CharacterType.Archibald);
+            });
+            jacksonButton.onClick.AddListener(() =>
+            {
+                StartCharacter(CharacterType.Jackson);
+            });
+            sheilaButton.onClick.AddListener(() =>
+            {
+                StartCharacter(CharacterType.Sheila);
+            });
         }
 
         private void SwitchToLocalButtons()
@@ -74,6 +89,11 @@ namespace GrassGame.Gameplay.Synced
             networkButtonsParent.SetActive(false);
             localButtonsParent.SetActive(false);
             gameObject.SetActive(false);
+        }
+
+        private void StartCharacter(CharacterType characterType)
+        {
+            LocalGameManager.Instance.StartCharacter(characterType);
         }
     }
 }

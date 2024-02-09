@@ -120,4 +120,9 @@ public class CharacterAnimation : MonoBehaviour
         transform.localScale = new Vector3(1f, 1f, 1f);
         return;
     }
+
+    public void SetReference(GameObject reference)
+    {
+        referenceBody = reference.GetComponent<Rigidbody>();
+    }
 }

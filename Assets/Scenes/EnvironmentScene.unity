@@ -1056,10 +1056,10 @@ MonoBehaviour:
   spectatorButton: {fileID: 1970554449}
   characterButton: {fileID: 1793952731}
   scanViewButton: {fileID: 1416257617}
-  characterButtonsParent: {fileID: 0}
-  archibaldButton: {fileID: 0}
-  jacksonButton: {fileID: 0}
-  sheilaButton: {fileID: 0}
+  characterButtonsParent: {fileID: 560165617}
+  archibaldButton: {fileID: 1319001772}
+  jacksonButton: {fileID: 927938720}
+  sheilaButton: {fileID: 229517392}
 --- !u!1 &315721411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e338cd6471408941955c56fa44be7c3, type: 3}
@@ -8321,6 +8321,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localCharacterPrefab: {fileID: 4785615338232032018, guid: 75f76b2f098ea514aaae7acfb93a26dc, type: 3}
+  archibaldVisualPrefab: {fileID: 0}
+  jacksonVisualPrefab: {fileID: 0}
+  sheilaVisualPrefab: {fileID: 0}
   characterReaderPrefab: {fileID: 3356647921168140632, guid: d0420adc0e8c17a4ca8c21a9748b352d, type: 3}
 --- !u!1 &2112350375
 GameObject:
